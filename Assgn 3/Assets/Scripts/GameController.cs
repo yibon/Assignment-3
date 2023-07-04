@@ -11,14 +11,18 @@ public class GameController : MonoBehaviour
     float verticalIP;
     Vector2 direction;
 
-    private void FixedUpdate()
+    private void Update()
     {
         horizontalIP = Input.GetAxisRaw("Horizontal");
         verticalIP = Input.GetAxisRaw("Vertical");
 
         direction = new Vector2(horizontalIP, verticalIP).normalized;
+    }
 
+    private void FixedUpdate()
+    {
         player.MovePlayer(direction * Time.fixedDeltaTime);
+
 
         enemy.FollowPlayer(player.GetPosition(), 1f, 3f * Time.fixedDeltaTime);
     }
