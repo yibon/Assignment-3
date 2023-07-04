@@ -18,5 +18,8 @@ public class PlayerScript : MonoBehaviour
         this.transform.position += (Vector3)direction * speed;
     }
 
-
+    public Vector2 GetPosition()
+    {
+        return this.transform.position;
+    }
 }

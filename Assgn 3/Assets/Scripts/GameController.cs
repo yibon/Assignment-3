@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public PlayerScript player;
+    public EnemyScript enemy;
 
     float horizontalIP;
     float verticalIP;
@@ -18,5 +19,7 @@ public class GameController : MonoBehaviour
         direction = new Vector2(horizontalIP, verticalIP).normalized;
 
         player.MovePlayer(direction * Time.fixedDeltaTime);
+
+        enemy.FollowPlayer(player.GetPosition(), 1f, 3f * Time.fixedDeltaTime);
     }
 }
