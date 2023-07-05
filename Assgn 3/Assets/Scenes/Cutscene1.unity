@@ -356,6 +356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTextDisplay: {fileID: 1575703125}
   nameTextDisplay: {fileID: 1789899345}
+  leftImageIMG: {fileID: 933183711}
+  rightImageIMG: {fileID: 1946907210}
 --- !u!1 &781235564
 GameObject:
   m_ObjectHideFlags: 0

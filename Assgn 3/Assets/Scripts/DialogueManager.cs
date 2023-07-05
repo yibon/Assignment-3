@@ -26,7 +26,6 @@ public class DialogueManager : MonoBehaviour
 
         dataManager.LoadRefData();
 
-        //  currCutscene = cutscenered
         currCutscene = "601001";
         //_dialogue = Game.GetDialogueByRefId(currCutscene);
 
@@ -54,7 +53,7 @@ public class DialogueManager : MonoBehaviour
         _dialogue = Game.GetDialogueByRefId(currCutscene);
 
         // Checking if the current scene is the end
-        if (currCutscene == "-1") { Debug.Log("End of Dialogue"); }
+        if (currCutscene == "-1") { SceneLoader.LoadScene(SceneLoader.Scenes.MainScene); return; }
 
         AssetManager.LoadSprite(_dialogue.leftImage, (Sprite s) =>
         {
