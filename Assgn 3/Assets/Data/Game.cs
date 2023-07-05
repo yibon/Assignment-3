@@ -4,20 +4,8 @@ using UnityEngine;
 
 public static class Game
 {
-    private static CutScenes cutscene;
 
     private static List<Dialogue> dialogueList;
-
-    public static CutScenes GetDialogue()
-    {
-        return cutscene;
-    }
-
-    public static void SetDialogue(CutScenes _cutscene)
-    {
-        cutscene = _cutscene;   
-    }
-
 
     public static List<Dialogue> GetDialogueList()
     {

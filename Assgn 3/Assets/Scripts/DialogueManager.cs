@@ -7,18 +7,17 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    private CutScenes cutscene;
-
     private Dialogue _dialogue;
     private string currCutscene;
-
-    private List<Dialogue> _dialogueList;
-    private int currIndex;
-
 
     [Header("TEXTS")]
     [SerializeField] private TMP_Text dialogueTextDisplay;
     [SerializeField] private TMP_Text nameTextDisplay;
+
+
+    [Header("IMAGES")]
+    [SerializeField] private Image leftImageIMG;
+    [SerializeField] private Image rightImageIMG;
 
 
     private void Start()
@@ -27,17 +26,19 @@ public class DialogueManager : MonoBehaviour
 
         dataManager.LoadRefData();
 
-        _dialogueList = Game.GetDialogueList();
-
-
         //  currCutscene = cutscenered
         currCutscene = "601001";
+        //_dialogue = Game.GetDialogueByRefId(currCutscene);
+
+        NextLine();
+
     }
 
     // in update,
     private void Update()
     {
-        _dialogue = Game.GetDialogueByRefId(currCutscene);
+
+        //Debug.Log(currCutscene);
 
         // get mouse input/next line input
         if (Input.GetMouseButtonDown(0))
@@ -50,47 +51,39 @@ public class DialogueManager : MonoBehaviour
 
     private void NextLine()
     {
-        // Checking if the current scene is not the end
-        Debug.Log(currCutscene);
+        _dialogue = Game.GetDialogueByRefId(currCutscene);
 
-        if (currCutscene != "-1")
+        // Checking if the current scene is the end
+        if (currCutscene == "-1") { Debug.Log("End of Dialogue"); }
+
+        AssetManager.LoadSprite(_dialogue.leftImage, (Sprite s) =>
         {
-            dialogueTextDisplay.text = _dialogue.dialogue;
-            nameTextDisplay.text = _dialogue.speakerName;
+            leftImageIMG.sprite = s;
+        });
 
-            currCutscene = _dialogue.nextCutsceneRefId;
+        AssetManager.LoadSprite(_dialogue.rightImage, (Sprite s) =>
+        {
+            rightImageIMG.sprite = s;
+        });
+
+
+        dialogueTextDisplay.text = _dialogue.dialogue;
+        nameTextDisplay.text = _dialogue.speakerName;
+
+        currCutscene = _dialogue.nextCutsceneRefId;
+
+        if (_dialogue.currentSpeaker == Dialogue.CurrentSpeaker.RIGHT)
+        {
+            rightImageIMG.color = Color.white;
+            leftImageIMG.color = Color.grey;
         }
 
-        else
+        if (_dialogue.currentSpeaker == Dialogue.CurrentSpeaker.LEFT)
         {
-            Debug.Log("End of Dialogue");
+            leftImageIMG.color = Color.white;
+            rightImageIMG.color = Color.grey;
         }
-
     }
-
-    //  if (currCutScene is not -1)
-    //  {	
-    //	dialogue text = dialogue
-
-
-    //    check if the speaker is the left or right speaker
-    //		if left,
-    //			name text = left speaker
-    //            dull the right image(using tint?)
-    //		if right,
-    //			name text = right speaker
-    //			dull the left image
-
-    //	    currCutScene = next cutscene
-    //  }
-
-    //  else
-    //  {
-    //       end dialogue function
-    //  }
-
-
-    //  nextline function:
 
     // end dialogue function:
     // check the cutsceneset id
