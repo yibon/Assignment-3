@@ -6,6 +6,7 @@ public static class Game
 {
 
     private static List<Dialogue> dialogueList;
+    private static List<Character> characterList;
 
     public static List<Dialogue> GetDialogueList()
     {
@@ -20,6 +21,21 @@ public static class Game
     public static Dialogue GetDialogueByRefId(string _refId)
     {
         return dialogueList.Find(x => x.cutsceneRefId == _refId);
+    }
+
+    public static List<Character> GetCharacterList()
+    {
+        return characterList;
+    }
+
+    public static void SetCharacterList(List<Character> _list)
+    {
+        characterList = _list;
+    }
+
+    public static Character GetCharacterByRefId(string _refId)
+    {
+        return characterList.Find(x => x.characterId == _refId);
     }
 
 }

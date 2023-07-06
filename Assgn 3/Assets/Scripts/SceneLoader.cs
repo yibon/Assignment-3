@@ -9,6 +9,7 @@ public class SceneLoader
     {
         MainMenu,
         Cutscene1,
+        CharacterSelect,
         MainScene
     }
 

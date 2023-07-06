@@ -23,8 +23,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         DataManager dataManager = GetComponent<DataManager>();
-
-        dataManager.LoadRefData();
+        dataManager.LoadDialogueRefData();
 
         currCutscene = "601001";
         //_dialogue = Game.GetDialogueByRefId(currCutscene);
@@ -53,7 +52,7 @@ public class DialogueManager : MonoBehaviour
         _dialogue = Game.GetDialogueByRefId(currCutscene);
 
         // Checking if the current scene is the end
-        if (currCutscene == "-1") { SceneLoader.LoadScene(SceneLoader.Scenes.MainScene); return; }
+        if (currCutscene == "-1") { SceneLoader.LoadScene(SceneLoader.Scenes.CharacterSelect); return; }
 
         AssetManager.LoadSprite(_dialogue.leftImage, (Sprite s) =>
         {
