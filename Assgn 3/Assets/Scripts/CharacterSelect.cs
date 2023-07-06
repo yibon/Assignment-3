@@ -8,9 +8,12 @@ public class CharacterSelect : MonoBehaviour
 {
     public static bool characterChosen;
     // Replace this with the UpdateCharacterStats();
-    private string currCharacter;
+    public static string currCharacter;
+
+    private Player player;
 
     [SerializeField] private Image characterImage;
+    [SerializeField] private Image buttonImage;
 
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text hpText;
@@ -30,8 +33,9 @@ public class CharacterSelect : MonoBehaviour
 
         if (_character != null)
         {
+            buttonImage.color = Color.white;
             characterChosen = true;
-            Debug.Log(_character.characterId);
+            //Debug.Log(_character.characterId);
             nameText.text = _character.characterName;
             hpText.text = "HP: " + _character.characterHP.ToString();
             attText.text = "Attack: " + _character.characterAttk.ToString();
@@ -51,18 +55,21 @@ public class CharacterSelect : MonoBehaviour
     {
         currCharacter = "1";
         characterImage.color = Color.red;
+        //player.SetCurrentCharacter("1");
     }
 
     public void Choice2()
     {
         currCharacter = "2";
         characterImage.color = Color.green;
+        //player.SetCurrentCharacter("2");
     }
 
     public void Choice3()
     {
         currCharacter = "3";
-        characterImage.color = Color.blue;  
+        characterImage.color = Color.blue;
+        //player.SetCurrentCharacter("3");
     }
 
     public void Proceed()

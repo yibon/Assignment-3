@@ -73,7 +73,7 @@ public class DataManager : MonoBehaviour
         }
 
         Game.SetCharacterList(characterlist);
-        Debug.Log(Game.GetCharacterList().Count);
+        //Debug.Log(Game.GetCharacterList().Count);
     }
 }
 

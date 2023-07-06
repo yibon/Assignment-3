@@ -4,9 +4,20 @@ using UnityEngine;
 
 public static class Game
 {
+    private static Player player;
 
     private static List<Dialogue> dialogueList;
     private static List<Character> characterList;
+    
+    public static Player GetPlayer()
+    {
+        return player;
+    }
+
+    public static void SetPlayer(Player _player)
+    {
+        player = _player;
+    }
 
     public static List<Dialogue> GetDialogueList()
     {

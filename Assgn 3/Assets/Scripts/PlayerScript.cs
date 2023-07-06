@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    float speed = 10.0f;
-
-
     // Update is called once per frame
     void Update()
     {
@@ -15,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     public void MovePlayer (Vector2 direction)
     {
         //move player position
-        this.transform.position += (Vector3)direction * speed;
+        this.transform.position += (Vector3)direction * Game.GetPlayer().GetPlayerSpeed();
     }
 
     public Vector2 GetPosition()

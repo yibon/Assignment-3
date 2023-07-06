@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    //public string initCharacter;
+
     public PlayerScript player;
     public EnemyScript enemy;
 
     float horizontalIP;
     float verticalIP;
     Vector2 direction;
+
+    private void Start()
+    {
+        DataManager dataManager = GetComponent<DataManager>();
+        dataManager.LoadRefCharacterData();
+
+        Game.SetPlayer(new Player(CharacterSelect.currCharacter));
+        Debug.Log(Game.GetPlayer().GetCurrentCharacter());
+    }
 
     private void Update()
     {
