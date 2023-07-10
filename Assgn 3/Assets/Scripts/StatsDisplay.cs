@@ -23,10 +23,8 @@ public class StatsDisplay : MonoBehaviour
 
     private void Update()
     {
-        playerScript.UpdatePlayer();
-
         nameText.text = "Character: " + _player.GetPlayerName();
-        hpText.text = "HP: " + playerScript.currHealth ;
+        hpText.text = "HP: " + playerScript.currHealth;
         attText.text = "Attack: " + playerScript.currAttack;
         speedText.text = "Speed: " + playerScript.currSpeed;
     }

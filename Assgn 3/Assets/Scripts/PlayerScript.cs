@@ -40,9 +40,9 @@ public class PlayerScript : MonoBehaviour
     {
         currHealth -= dmgTaken;
         Debug.Log(currHealth);
-        UpdatePlayer();
+        //UpdatePlayer();
 
-        if (currHealth < 0)
+        if (currHealth <= 0)
         {
             Debug.Log("you ded");
         }

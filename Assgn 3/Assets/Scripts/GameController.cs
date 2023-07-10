@@ -27,10 +27,10 @@ public class GameController : MonoBehaviour
         horizontalIP = Input.GetAxisRaw("Horizontal");
         verticalIP = Input.GetAxisRaw("Vertical");
 
-        player.UpdatePlayer();
+        //player.UpdatePlayer();
         if (Input.GetKeyDown(KeyCode.T)) 
         {
-            Debug.Log("Alohaaa");
+            //Debug.Log("Alohaaa");
             player.TakeDamage(10);
         }
 
