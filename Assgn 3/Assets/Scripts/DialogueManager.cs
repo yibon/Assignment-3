@@ -70,16 +70,13 @@ public class DialogueManager : MonoBehaviour
 
         currCutscene = _dialogue.nextCutsceneRefId;
 
-        if (_dialogue.currentSpeaker == Dialogue.CurrentSpeaker.RIGHT)
-        {
-            rightImageIMG.color = Color.white;
-            leftImageIMG.color = Color.grey;
-        }
 
-        if (_dialogue.currentSpeaker == Dialogue.CurrentSpeaker.LEFT)
+        ImageDim(_dialogue.currentSpeaker);
+
+
+        if (_dialogue.dialogue == "-1")
         {
-            leftImageIMG.color = Color.white;
-            rightImageIMG.color = Color.grey;
+
         }
     }
 
@@ -90,4 +87,22 @@ public class DialogueManager : MonoBehaviour
 
     // if id is 602,
     // endgame sequence commences.
+
+    private void ImageDim(Dialogue.CurrentSpeaker currSpeaker)
+    {
+        if (currSpeaker == Dialogue.CurrentSpeaker.RIGHT)
+        {
+            rightImageIMG.color = Color.white;
+            leftImageIMG.color = Color.grey;
+        }
+
+        if (currSpeaker == Dialogue.CurrentSpeaker.LEFT)
+        {
+            leftImageIMG.color = Color.white;
+            rightImageIMG.color = Color.grey;
+
+        }
+    }
 }
+
+
