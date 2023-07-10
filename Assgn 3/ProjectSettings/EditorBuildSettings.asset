@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterSelect.unity
     guid: 3210df07d048aa4419a00c7f607b703c
+  - enabled: 1
+    path: Assets/Scenes/WeaponSelection.unity
+    guid: 9d0cef0fa5a81504f89f8dc2d52e8897
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a9e013c477eb55641ba559f1aba398f4, type: 2}
