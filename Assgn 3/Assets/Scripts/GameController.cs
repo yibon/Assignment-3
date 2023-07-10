@@ -27,14 +27,20 @@ public class GameController : MonoBehaviour
         horizontalIP = Input.GetAxisRaw("Horizontal");
         verticalIP = Input.GetAxisRaw("Vertical");
 
+        player.UpdatePlayer();
+        if (Input.GetKeyDown(KeyCode.T)) 
+        {
+            Debug.Log("Alohaaa");
+            player.TakeDamage(10);
+        }
+
         direction = new Vector2(horizontalIP, verticalIP).normalized;
     }
 
     private void FixedUpdate()
     {
         player.MovePlayer(direction * Time.fixedDeltaTime);
-
-
         enemy.FollowPlayer(player.GetPosition(), 1f, 3f * Time.fixedDeltaTime);
     }
+
 }

@@ -55,21 +55,18 @@ public class CharacterSelect : MonoBehaviour
     {
         currCharacter = "1";
         characterImage.color = Color.red;
-        //player.SetCurrentCharacter("1");
     }
 
     public void Choice2()
     {
         currCharacter = "2";
         characterImage.color = Color.green;
-        //player.SetCurrentCharacter("2");
     }
 
     public void Choice3()
     {
         currCharacter = "3";
         characterImage.color = Color.blue;
-        //player.SetCurrentCharacter("3");
     }
 
     public void Proceed()
