@@ -37,7 +37,7 @@ public class DataManager : MonoBehaviour
 
             Dialogue dialogue = new Dialogue(refDialogue.cutsceneRefId, refDialogue.nextCutsceneRefId, refDialogue.cutsceneSetId,
                                              currSpeaker, refDialogue.leftImage, refDialogue.rightImage,
-                                             refDialogue.dialogue, refDialogue.speakerName);
+                                             refDialogue.dialogue, refDialogue.speakerName, refDialogue.choices);
 
             dialoguelist.Add(dialogue);
         }

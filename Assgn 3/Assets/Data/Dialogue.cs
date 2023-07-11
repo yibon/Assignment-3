@@ -18,12 +18,13 @@ public class Dialogue
     // Texts to display
     public string dialogue { get; }
     public string speakerName { get; }
+    public string choices { get; }
 
 
     // Constructor
     public Dialogue (string _cutsceneRefId, string _nextCutSceneRefId, string _cutsceneSetId,
                      CurrentSpeaker _currentSpeaker, string _leftImage, string _rightImage, 
-                     string _dialogue, string _speakerName)
+                     string _dialogue, string _speakerName, string _choices)
     {
         this.cutsceneRefId = _cutsceneRefId;
         this.nextCutsceneRefId = _nextCutSceneRefId;
@@ -33,6 +34,7 @@ public class Dialogue
         this.rightImage = _rightImage;
         this.dialogue = _dialogue;
         this.speakerName = _speakerName;
+        this.choices = _choices;
     }
 
     public enum CurrentSpeaker

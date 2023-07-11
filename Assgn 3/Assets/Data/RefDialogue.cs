@@ -20,5 +20,5 @@ public class RefDialogue
     // Texts to display
     public string dialogue;
     public string speakerName;
-
+    public string choices;
 }

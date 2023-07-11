@@ -9,15 +9,25 @@ public class DialogueManager : MonoBehaviour
 {
     private Dialogue _dialogue;
     private string currCutscene;
+    private string[] splitedChoices;
+    //private string[] splitedIds;
 
     [Header("TEXTS")]
     [SerializeField] private TMP_Text dialogueTextDisplay;
     [SerializeField] private TMP_Text nameTextDisplay;
 
 
+    [SerializeField] private TMP_Text firstChoiceDisplay;
+    [SerializeField] private TMP_Text secondChoiceDisplay;
+
+
     [Header("IMAGES")]
     [SerializeField] private Image leftImageIMG;
     [SerializeField] private Image rightImageIMG;
+
+    [Header("CHOICES")]
+    [SerializeField] private GameObject firstChoice;
+    [SerializeField] private GameObject secondChoice;
 
 
     private void Start()
@@ -65,18 +75,28 @@ public class DialogueManager : MonoBehaviour
         });
 
 
-        dialogueTextDisplay.text = _dialogue.dialogue;
-        nameTextDisplay.text = _dialogue.speakerName;
-
-        currCutscene = _dialogue.nextCutsceneRefId;
-
-
-        ImageDim(_dialogue.currentSpeaker);
-
-
         if (_dialogue.dialogue == "-1")
         {
+            ChoicesSplit();
+            dialogueTextDisplay.text = " ";
+            firstChoice.SetActive(true);
+            secondChoice.SetActive(true);
 
+            firstChoiceDisplay.text = splitedChoices[0];
+            secondChoiceDisplay.text = splitedChoices[2];
+            //Debug.Log("EKWOPKFEWOF");
+        }
+
+        else
+        {
+            dialogueTextDisplay.text = _dialogue.dialogue;
+            nameTextDisplay.text = _dialogue.speakerName;
+
+            ImageDim(_dialogue.currentSpeaker);
+            currCutscene = _dialogue.nextCutsceneRefId;
+
+            firstChoice.SetActive(false);
+            secondChoice.SetActive(false);
         }
     }
 
@@ -100,9 +120,31 @@ public class DialogueManager : MonoBehaviour
         {
             leftImageIMG.color = Color.white;
             rightImageIMG.color = Color.grey;
-
         }
     }
+
+    public void FirstChoice()
+    {
+        // Replace this with the choices section from csv
+        currCutscene = splitedChoices[1];
+    }
+
+    public void SecondChoice()
+    {
+        // Replace this with the choices section from csv
+        currCutscene = splitedChoices[3];
+    }
+
+    private void ChoicesSplit()
+    {
+        splitedChoices = _dialogue.choices.Split('#', '@', '#');
+
+        for (int i = 1; i < splitedChoices.Length; i += 2)
+        {
+            Debug.Log(splitedChoices[i]);
+        }
+    }
+
 }
 
 
