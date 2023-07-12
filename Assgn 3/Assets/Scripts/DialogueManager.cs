@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
         DataManager dataManager = GetComponent<DataManager>();
         dataManager.LoadDialogueRefData();
 
+        // Comment this line when there are multiple dialogues involved
         currCutscene = "601001";
         //_dialogue = Game.GetDialogueByRefId(currCutscene);
 
