@@ -34,6 +34,12 @@ public class GameController : MonoBehaviour
             player.TakeDamage(10);
         }
 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            DialogueManager.currCutscene = "602";
+            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
+        }
+
         direction = new Vector2(horizontalIP, verticalIP).normalized;
     }
 

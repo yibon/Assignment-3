@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public static void StartGame()
     {
-        DialogueManager.currCutscene = "601001";
+        DialogueManager.currCutscene = "601";
         SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
     }
 

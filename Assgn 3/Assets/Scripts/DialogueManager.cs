@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     private Dialogue _dialogue;
+    public static string currDialogue;
     public static string currCutscene;
+
     private string[] splitedChoices;
     //private string[] splitedIds;
 
@@ -34,11 +36,20 @@ public class DialogueManager : MonoBehaviour
         dataManager.LoadDialogueRefData();
 
         // Comment this line when there are multiple dialogues involved
-        currCutscene = "601001";
         //_dialogue = Game.GetDialogueByRefId(currCutscene);
 
-        NextLine();
+        switch (currCutscene)
+        {
+            case "601":
+                currDialogue = "601001";
+                break;
+            case "602":
+                Debug.Log("yeeeeeeeeee");
+                currDialogue = "602001";
+                break;
+        }
 
+        NextLine();
     }
 
     // in update,
@@ -56,11 +67,11 @@ public class DialogueManager : MonoBehaviour
 
     private void NextLine()
     {
-        _dialogue = Game.GetDialogueByRefId(currCutscene);
-        Debug.Log(currCutscene);
+        _dialogue = Game.GetDialogueByRefId(currDialogue);
+        Debug.Log(currDialogue);
 
         // Checking if the current scene is the end
-        if (currCutscene == "-1") { SceneLoader.LoadScene(SceneLoader.Scenes.CharacterSelect); return; }
+        if (currDialogue == "-1") { SceneLoader.LoadScene(SceneLoader.Scenes.CharacterSelect); return; }
 
         AssetManager.LoadSprite(_dialogue.leftImage, (Sprite s) =>
         {
@@ -94,7 +105,7 @@ public class DialogueManager : MonoBehaviour
             firstChoice.SetActive(false);
             secondChoice.SetActive(false);
 
-            currCutscene = _dialogue.nextCutsceneRefId;
+            currDialogue = _dialogue.nextCutsceneRefId;
         }
     }
 
@@ -124,13 +135,13 @@ public class DialogueManager : MonoBehaviour
     public void FirstChoice()
     {
         //Debug.Log("Hello World");
-        currCutscene = splitedChoices[1];
+        currDialogue = splitedChoices[1];
         NextLine();
     }
 
     public void SecondChoice()
     {
-        currCutscene = splitedChoices[3];
+        currDialogue = splitedChoices[3];
         NextLine();
     }
 
