@@ -8,15 +8,13 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     private Dialogue _dialogue;
-    private string currCutscene;
+    public static string currCutscene;
     private string[] splitedChoices;
     //private string[] splitedIds;
 
     [Header("TEXTS")]
     [SerializeField] private TMP_Text dialogueTextDisplay;
     [SerializeField] private TMP_Text nameTextDisplay;
-
-
     [SerializeField] private TMP_Text firstChoiceDisplay;
     [SerializeField] private TMP_Text secondChoiceDisplay;
 
@@ -46,8 +44,6 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
 
-        //Debug.Log(currCutscene);
-
         // get mouse input/next line input
         if (Input.GetMouseButtonDown(0))
         {
@@ -60,6 +56,7 @@ public class DialogueManager : MonoBehaviour
     private void NextLine()
     {
         _dialogue = Game.GetDialogueByRefId(currCutscene);
+        Debug.Log(currCutscene);
 
         // Checking if the current scene is the end
         if (currCutscene == "-1") { SceneLoader.LoadScene(SceneLoader.Scenes.CharacterSelect); return; }
@@ -75,16 +72,15 @@ public class DialogueManager : MonoBehaviour
         });
 
 
-        if (_dialogue.dialogue == "-1")
+        if (_dialogue.nextCutsceneRefId == "-2")
         {
             ChoicesSplit();
-            dialogueTextDisplay.text = " ";
             firstChoice.SetActive(true);
             secondChoice.SetActive(true);
 
+            dialogueTextDisplay.text = " ";
             firstChoiceDisplay.text = splitedChoices[0];
             secondChoiceDisplay.text = splitedChoices[2];
-            //Debug.Log("EKWOPKFEWOF");
         }
 
         else
@@ -93,10 +89,11 @@ public class DialogueManager : MonoBehaviour
             nameTextDisplay.text = _dialogue.speakerName;
 
             ImageDim(_dialogue.currentSpeaker);
-            currCutscene = _dialogue.nextCutsceneRefId;
 
             firstChoice.SetActive(false);
             secondChoice.SetActive(false);
+
+            currCutscene = _dialogue.nextCutsceneRefId;
         }
     }
 
@@ -125,24 +122,25 @@ public class DialogueManager : MonoBehaviour
 
     public void FirstChoice()
     {
-        // Replace this with the choices section from csv
+        //Debug.Log("Hello World");
         currCutscene = splitedChoices[1];
+        NextLine();
     }
 
     public void SecondChoice()
     {
-        // Replace this with the choices section from csv
         currCutscene = splitedChoices[3];
+        NextLine();
     }
 
     private void ChoicesSplit()
     {
         splitedChoices = _dialogue.choices.Split('#', '@', '#');
 
-        for (int i = 1; i < splitedChoices.Length; i += 2)
-        {
-            Debug.Log(splitedChoices[i]);
-        }
+        //for (int i = 1; i < splitedChoices.Length; i += 2)
+        //{
+        //    Debug.Log(splitedChoices[i]);
+        //}
     }
 
 }

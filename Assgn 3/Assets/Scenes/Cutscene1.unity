@@ -336,7 +336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.015015, y: -439}
+  m_AnchoredPosition: {x: 6, y: -371}
   m_SizeDelta: {x: 1632.6, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &290534543
@@ -627,6 +627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTextDisplay: {fileID: 1575703125}
   nameTextDisplay: {fileID: 1789899345}
+  firstChoiceDisplay: {fileID: 1881774761}
+  secondChoiceDisplay: {fileID: 481913464}
   leftImageIMG: {fileID: 933183711}
   rightImageIMG: {fileID: 1946907210}
   firstChoice: {fileID: 1696111636}
@@ -1115,7 +1117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.015015, y: -379}
+  m_AnchoredPosition: {x: 6, y: -311}
   m_SizeDelta: {x: 1632.6, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696111638
