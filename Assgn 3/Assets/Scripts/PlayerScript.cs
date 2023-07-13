@@ -13,9 +13,9 @@ public class PlayerScript : MonoBehaviour
 {
     private Player _player;
 
-    public int currHealth;
-    public int currAttack;
-    public int currSpeed;
+    public static int currHealth;
+    public static int currAttack;
+    public static int currSpeed;
 
     private void Start()
     {

@@ -14,7 +14,7 @@ using UnityEngine.UI;
 public class StatsDisplay : MonoBehaviour
 {
     private Player _player;
-    public PlayerScript playerScript;
+    //public PlayerScript playerScript;
 
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text hpText;
@@ -29,9 +29,9 @@ public class StatsDisplay : MonoBehaviour
     private void Update()
     {
         nameText.text = "Character: " + _player.GetPlayerName();
-        hpText.text = "HP: " + playerScript.currHealth;
-        attText.text = "Attack: " + playerScript.currAttack;
-        speedText.text = "Speed: " + playerScript.currSpeed;
+        hpText.text = "HP: " + PlayerScript.currHealth;
+        attText.text = "Attack: " + PlayerScript.currAttack;
+        speedText.text = "Speed: " + PlayerScript.currSpeed;
     }
 
 }

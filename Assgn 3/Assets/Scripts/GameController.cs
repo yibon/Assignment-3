@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public PlayerScript player;
     public EnemyScript enemy;
 
+    public float followeingSpeed;
+
     float horizontalIP;
     float verticalIP;
     Vector2 direction;
@@ -51,7 +53,12 @@ public class GameController : MonoBehaviour
     private void FixedUpdate()
     {
         player.MovePlayer(direction * Time.fixedDeltaTime);
-        enemy.FollowPlayer(player.GetPosition(), 1f, 3f * Time.fixedDeltaTime);
+
+        // following speed should be taken from data
+        if (EnemyScript.enemycurrHP> 0)
+        {
+            enemy.FollowPlayer(player.GetPosition(), 1f, followeingSpeed * Time.fixedDeltaTime);
+        }
     }
 
 }
