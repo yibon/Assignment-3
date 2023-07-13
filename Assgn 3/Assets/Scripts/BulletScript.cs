@@ -1,3 +1,8 @@
+// UXG2520 & UXG2165 Assignment 3
+// Team Name: Lavon
+// File Name: BulletScript.cs
+// Author: Yvonne Lim
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

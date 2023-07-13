@@ -1,3 +1,9 @@
+// UXG2520 & UXG2165 Assignment 3
+// Team Name: Lavon
+// File Name: Character.cs
+// Author: Yvonne Lim
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

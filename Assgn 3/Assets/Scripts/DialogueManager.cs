@@ -1,3 +1,8 @@
+// UXG2520 & UXG2165 Assignment 3
+// Team Name: Lavon
+// File Name: DialogueManager.cs
+// Author: Yvonne Lim
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;

@@ -1,3 +1,8 @@
+// UXG2520 & UXG2165 Assignment 3
+// Team Name: Lavon
+// File Name: EnemyScript.cs
+// Author: Yvonne Lim
+
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
