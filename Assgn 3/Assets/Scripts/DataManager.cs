@@ -80,5 +80,34 @@ public class DataManager : MonoBehaviour
         Game.SetCharacterList(characterlist);
         //Debug.Log(Game.GetCharacterList().Count);
     }
+
+    public void LoadRefEnemyData()
+    {
+        string filePath = Path.Combine(Application.dataPath, "Data/enemy_data.txt");
+        string dataString = File.ReadAllText(filePath);
+
+        // Tell the json file that you would like to get data from data string into the dialogue data class
+        RefData enemyData = JsonUtility.FromJson<RefData>(dataString);
+
+        // Process Data
+        ProcessCharacterData(enemyData);
+    }
+
+    private void ProcessEnemyData(RefData enemyData)
+    {
+        // Character Table
+        List<Enemy> enemyList = new List<Enemy>();
+
+        foreach (RefEnemy refEnemy in enemyData.RefEnemy)
+        {
+            Enemy enemy = new Enemy(refEnemy.enemyId, refEnemy.enemyName, refEnemy.enemyHeath,
+                                    refEnemy.enemyAttack, refEnemy.enemySpeed);
+
+            enemyList.Add(enemy);
+        }
+
+        Game.SetEnemyList(enemyList);
+        //Debug.Log(Game.GetCharacterList().Count);
+    }
 }
 

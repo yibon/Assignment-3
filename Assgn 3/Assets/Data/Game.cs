@@ -13,7 +13,8 @@ public static class Game
 
     private static List<Dialogue> dialogueList;
     private static List<Character> characterList;
-    
+    private static List<Enemy> enemyList;
+
     public static Player GetPlayer()
     {
         return player;
@@ -53,5 +54,16 @@ public static class Game
     {
         return characterList.Find(x => x.characterId == _refId);
     }
+
+    public static List<Enemy> GetEnemyList()
+    {
+        return enemyList;
+    }
+
+    public static void SetEnemyList(List<Enemy> _list)
+    {
+        enemyList = _list;
+    }
+
 
 }
