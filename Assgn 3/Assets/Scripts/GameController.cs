@@ -24,9 +24,10 @@ public class GameController : MonoBehaviour
     {
         DataManager dataManager = GetComponent<DataManager>();
         dataManager.LoadRefCharacterData();
+        dataManager.LoadRefEnemyData();
 
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
-        Debug.Log(Game.GetPlayer().GetCurrentCharacter());
+        //Debug.Log(Game.GetPlayer().GetCurrentCharacter());
     }
 
     private void Update()

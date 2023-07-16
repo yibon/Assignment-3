@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RefEnemy : MonoBehaviour
+[System.Serializable]
+public class RefEnemy
 {
     public string enemyId;
     public string enemyName;

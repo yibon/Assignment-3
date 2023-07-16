@@ -1,0 +1,32 @@
+{
+    "RefEnemy": [
+        {
+            "enemyId": "3001",
+            "enemyName": "Ramen Bandit",
+            "enemyHeath": "50",
+            "enemyAttack": "10",
+            "enemySpeed": "8"
+        },
+        {
+            "enemyId": "3002",
+            "enemyName": "Miso Monster",
+            "enemyHeath": "70",
+            "enemyAttack": "12",
+            "enemySpeed": "7"
+        },
+        {
+            "enemyId": "3003",
+            "enemyName": "Dumpling Drone",
+            "enemyHeath": "80",
+            "enemyAttack": "15",
+            "enemySpeed": "6"
+        },
+        {
+            "enemyId": "3004",
+            "enemyName": "Spicy Samurai",
+            "enemyHeath": "100",
+            "enemyAttack": "20",
+            "enemySpeed": "5"
+        }
+    ]
+}
