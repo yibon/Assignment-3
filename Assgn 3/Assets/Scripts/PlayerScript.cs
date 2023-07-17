@@ -21,15 +21,9 @@ public class PlayerScript : MonoBehaviour
     {
         // Delete this line if you want the character to be chosen from the select screen
         CharacterSelect.currCharacter = "1";
+        
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
-
         UpdatePlayer();
-    }
-
-    private void Update()
-    {
-        //UpdatePlayer();
-
     }
 
     public void MovePlayer (Vector2 direction)

@@ -12,11 +12,24 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public static float enemycurrHP;
+    public static float enemycurrAttack;
+    public static float enemycurrSpeed;
+
+    private Mob _mob;
 
     private void Start()
     {
         // Replace this with data
-        enemycurrHP = 100;
+        Game.SetMob(new Mob("3001"));
+
+        UpdateMob();
+    }
+
+    private void Update()
+    {
+        //Debug.Log("Enemy HP: " + enemycurrHP);
+        //Debug.Log("Enemy Attack: " + enemycurrAttack);
+        //Debug.Log("Enemy Speed: " + enemycurrSpeed);
     }
 
     public void FollowPlayer(Vector2 playerPos, float minDist, float followingSpeed)
@@ -34,7 +47,6 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,5 +59,13 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("Enemy Hit");
             Destroy(collision.gameObject);
         }
+    }
+    public void UpdateMob()
+    {
+        _mob = Game.GetMob();
+
+        enemycurrHP = _mob.GetMobHP();
+        enemycurrAttack = _mob.GetMobAtt();
+        enemycurrSpeed = _mob.GetMobSpeed();
     }
 }

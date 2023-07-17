@@ -10,6 +10,7 @@ using UnityEngine;
 public static class Game
 {
     private static Player player;
+    private static Mob mob;
 
     private static List<Dialogue> dialogueList;
     private static List<Character> characterList;
@@ -65,5 +66,18 @@ public static class Game
         enemyList = _list;
     }
 
+    public static Mob GetMob()
+    {
+        return mob;
+    }
+
+    public static void SetMob(Mob _mob)
+    {
+        mob = _mob;
+    }
+    public static Enemy GetEnemyByRefId(string _refId)
+    {
+        return enemyList.Find(x => x.enemyId == _refId);
+    }
 
 }

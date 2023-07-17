@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     public PlayerScript player;
     public EnemyScript enemy;
 
-    public float followeingSpeed;
+    //public float followeingSpeed;
 
     float horizontalIP;
     float verticalIP;
@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
         // following speed should be taken from data
         if (EnemyScript.enemycurrHP> 0)
         {
-            enemy.FollowPlayer(player.GetPosition(), 1f, followeingSpeed * Time.fixedDeltaTime);
+            enemy.FollowPlayer(player.GetPosition(), 1f, EnemyScript.enemycurrSpeed * Time.fixedDeltaTime);
         }
     }
 
