@@ -69,6 +69,4 @@ public class Mob
         UpdateMobStats();
         return mobSpeed;
     }
-
-
 }

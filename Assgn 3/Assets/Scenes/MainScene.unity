@@ -221,9 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff358f102d011d43ab51083afa32fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currHealth: 0
-  currAttack: 0
-  currSpeed: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +540,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 357287132}
   enemy: {fileID: 2111977629}
-  followeingSpeed: 1
 --- !u!4 &1027299307
 Transform:
   m_ObjectHideFlags: 0
@@ -823,7 +819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8ee6d7279d1344fae288176ba8f2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScript: {fileID: 357287132}
   nameText: {fileID: 1160389468}
   hpText: {fileID: 1711180913}
   attText: {fileID: 1965257309}
@@ -1322,7 +1317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111977628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.03, y: -0.64, z: 0}
+  m_LocalPosition: {x: -6.91, y: -2.08, z: 0}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

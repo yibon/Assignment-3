@@ -27,9 +27,6 @@ public class EnemyScript : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log("Enemy HP: " + enemycurrHP);
-        //Debug.Log("Enemy Attack: " + enemycurrAttack);
-        //Debug.Log("Enemy Speed: " + enemycurrSpeed);
     }
 
     public void FollowPlayer(Vector2 playerPos, float minDist, float followingSpeed)
@@ -42,6 +39,7 @@ public class EnemyScript : MonoBehaviour
     
     private void TakeDamage()
     {
+        //             vv Change this to the Weapon 
         enemycurrHP -= PlayerScript.currAttack;
         if (enemycurrHP < 0)
         {
@@ -59,7 +57,12 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("Enemy Hit");
             Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("Player"))
+        {
+        }
     }
+
     public void UpdateMob()
     {
         _mob = Game.GetMob();
