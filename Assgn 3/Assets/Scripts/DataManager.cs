@@ -109,7 +109,7 @@ public class DataManager : MonoBehaviour
         }
 
         Game.SetEnemyList(enemyList);
-        Debug.Log("FEWFEWFEW " + Game.GetEnemyList().Count);
+        //Debug.Log("FEWFEWFEW " + Game.GetEnemyList().Count);
     }
 }
 
