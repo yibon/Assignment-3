@@ -15,7 +15,8 @@ public class SceneLoader
         MainMenu,
         Cutscene1,
         CharacterSelect,
-        MainScene
+        MainScene,
+        WeaponSelect
     }
 
     public static void LoadScene(Scenes scene)

@@ -22,6 +22,7 @@ public class DataManager : MonoBehaviour
 
     public void LoadDialogueRefData()
     {
+        // 
         string filePath = Path.Combine(Application.dataPath, "Data/dialogue_data.txt");
         string dataString = File.ReadAllText(filePath);
 
