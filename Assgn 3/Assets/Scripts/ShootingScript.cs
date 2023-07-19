@@ -21,6 +21,7 @@ public class ShootingScript : MonoBehaviour
     private float timer;
     public float timeBetwFiring;
 
+    public ItemSpawnController pickedItem;
 
     // Start is called before the first frame update
     void Start()
@@ -50,13 +51,33 @@ public class ShootingScript : MonoBehaviour
             }
         }
 
-
-        if (Input.GetMouseButton(0) && canFire)
-        {
-            canFire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+        Collider2D[] collidersUnderMouse = new Collider2D[4];
+        int numCollidersUnderMouse = Physics2D.OverlapPoint(mousePos, new ContactFilter2D(), collidersUnderMouse);
+        if(numCollidersUnderMouse>0){
+            if (Input.GetMouseButton(0) && canFire)
+            {
+                for (int i = 0; i < numCollidersUnderMouse; ++i)
+                {
+                    // Check if collidersUnderMouse[i] is the type of object you want using tags or GetComponent()
+                    // Then do what you want to it
+                    GameObject collidedObj = collidersUnderMouse[i].gameObject;
+                    if(collidedObj.tag =="Bowl"){
+                        Debug.Log(pickedItem.pickedUp[0]);
+                        pickedItem.pickedUp[0].GetComponent<PickupItem>().parent = collidedObj.transform;
+                        // if(collidedObj.name == "Original Ramen"){
+                        //     collidedObj.GetComponent<Bowl>().
+                        // }
+                    }
+                }
+            }
         }
-
+        else{
+            if (Input.GetMouseButton(0) && canFire)
+            {
+                canFire = false;
+                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            }
+        }
 
     }
 }

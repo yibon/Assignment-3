@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour
     public static int currHealth;
     public static int currAttack;
     public static int currSpeed;
-
+    
     private void Start()
     {
         // Delete this line if you want the character to be chosen from the select screen

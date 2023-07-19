@@ -30,6 +30,7 @@ public class ItemSpawnController : MonoBehaviour
     {
         SpawnIngredient();
         CheckIfPickedUpOthers();
+        
     }
 
     // Spawn defaultIngredientCount number of ingredients
@@ -49,6 +50,7 @@ public class ItemSpawnController : MonoBehaviour
             GameObject newIngredient = Instantiate(ingredientPrefab, randPoint, transform.rotation);
             newIngredient.GetComponent<SpriteRenderer>().sprite = allIngredients[randIndex];
             newIngredient.GetComponent<Transform>().localScale = new Vector3(0.1f,0.1f,0.1f);
+            newIngredient.name = allIngredients[randIndex].name;
             
         }
     }
