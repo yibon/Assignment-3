@@ -20,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         // Delete this line if you want the character to be chosen from the select screen
-        CharacterSelect.currCharacter = "1";
+        // CharacterSelect.currCharacter = "1";
         
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         UpdatePlayer();

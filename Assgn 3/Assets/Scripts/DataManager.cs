@@ -18,6 +18,7 @@ public class DataManager : MonoBehaviour
         LoadDialogueRefData();
         LoadRefCharacterData();
         LoadRefEnemyData();
+        LoadRefEWaveData();
     }
 
     public void LoadDialogueRefData()
@@ -110,6 +111,30 @@ public class DataManager : MonoBehaviour
 
         Game.SetEnemyList(enemyList);
         //Debug.Log("FEWFEWFEW " + Game.GetEnemyList().Count);
+    }
+
+    public void LoadRefEWaveData()
+    {
+        string filePath = Path.Combine(Application.dataPath, "Data/ewave_data.txt");
+        string dataString = File.ReadAllText(filePath);
+
+        RefData eWaveData = JsonUtility.FromJson<RefData>(dataString);
+
+        ProcessEWaveData(eWaveData);
+    }
+
+    private void ProcessEWaveData(RefData eWaveData)
+    {
+        List <EnemyWave> enemyWaveList = new List<EnemyWave>();
+        foreach (RefEWave refewave in eWaveData.RefEWave)
+        {
+            EnemyWave enemyWave = new EnemyWave(refewave.waveId, refewave.enemyId, refewave.spawnDelay,
+                                                refewave.enemyCount, refewave.spawnPoint, refewave.nextWaveId);
+
+            enemyWaveList.Add(enemyWave);
+        }
+
+        Game.SetEnemyWaveList(enemyWaveList);
     }
 }
 

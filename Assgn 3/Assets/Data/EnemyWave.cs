@@ -4,26 +4,20 @@ using UnityEngine;
 
 public class EnemyWave
 {
-    //public string enemyId { get; }
-    //public string enemyName { get; }
+    public string waveId { get; }
+    public string enemyId { get; }
 
-    //public float enemyHeath { get; }
-    //public float enemyAttack { get; }
-    //public float enemySpeed { get; }
+    public float spawnDelay { get; }
+    public string enemyCount { get; }
+    public string spawnPoint { get; }
+    public string nextWaveId { get; }
 
-    //public Enemy(string enemyId, string enemyName, float enemyHeath, float enemyAttack, float enemySpeed)
-    //{
-    //    this.enemyId = enemyId;
-    //    this.enemyName = enemyName;
-    //    this.enemyHeath = enemyHeath;
-    //    this.enemyAttack = enemyAttack;
-    //    this.enemySpeed = enemySpeed;
-    //}
-
-    public string waveId;
-    public string enemyId;
-
-    public float spawnDelay;
-    public int enemyCount;
-    public int spawnPoint;
+    public EnemyWave (string waveId, string enemyId, float spawnDelay, string enemyCount, string spawnPoint, string nextWaveId)    {
+        this.waveId = waveId;
+        this.enemyId = enemyId;
+        this.spawnDelay = spawnDelay;
+        this.enemyCount = enemyCount;
+        this.spawnPoint = spawnPoint;
+        this.nextWaveId = nextWaveId;
+    }
 }
