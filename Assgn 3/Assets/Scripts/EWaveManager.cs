@@ -30,7 +30,6 @@ public class EWaveManager : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log(timer);
         if (_eWave.spawnDelay != -1)
         {
             if (timer > _eWave.spawnDelay * 0.5f)

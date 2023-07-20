@@ -75,8 +75,9 @@ public class ItemSpawnController : MonoBehaviour
 
     // Spawn defaultIngredientCount number of ingredients
     private void InitIngredients(){
-        
-        while(spawnedCount < defaultIngredientCount){
+
+        for (int i = 0; i < defaultIngredientCount; i++)
+        {
             spawnedCount++;
             canRespawn = true;
             SpawnIngredient();
