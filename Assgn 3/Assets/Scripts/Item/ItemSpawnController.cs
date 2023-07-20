@@ -30,7 +30,7 @@ public class ItemSpawnController : MonoBehaviour
     void Start()
     {
         // Read json
-        string json_wave =  Application.dataPath + "/Data/JSON/"+ "ingredientwave.json";
+        string json_wave = "Assets/Data/JSON/ingredientwave.json";
         
         if (File.Exists(json_wave))
         {
