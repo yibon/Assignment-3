@@ -20,13 +20,14 @@ public class ShootingScript : MonoBehaviour
     public bool canFire;
     private float timer;
     public float timeBetwFiring;
-
+    public ItemSpawnController ingredients;
 
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         canFire = true;
+        ingredients = GameObject.FindObjectOfType<ItemSpawnController>();
     }
 
     // Update is called once per frame
@@ -50,11 +51,35 @@ public class ShootingScript : MonoBehaviour
             }
         }
 
-
+        Collider2D[] collidersUnderMouse = new Collider2D[4];
+        int numCollidersUnderMouse = Physics2D.OverlapPoint(mousePos, new ContactFilter2D(), collidersUnderMouse);
+        
         if (Input.GetMouseButton(0) && canFire)
         {
-            canFire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            if(numCollidersUnderMouse>0){
+                for (int i = 0; i < numCollidersUnderMouse; ++i)
+                {
+                    // Check if collidersUnderMouse[i] is the type of object you want using tags or GetComponent()
+                    // Then do what you want to it
+                    GameObject obj = collidersUnderMouse[i].gameObject;
+                    
+                    if(Game.GetPlayer().GetPlayerWeapon() == "Ramen"){
+                        if(obj.tag == "Bowl"){
+                            // Set pickup parent's so it will follow it
+                            ingredients.pickedUp[0].GetComponent<PickupItem>().parent = obj.transform;
+
+                            // Add picked up ingredient into bowl
+                            obj.GetComponent<Bowl>().AddToBowl(ingredients.pickedUp[0]);
+                        }
+                    }
+                }
+            }
+            else{
+                if(Game.GetPlayer().GetPlayerWeapon() == "Enemy"){
+                    canFire = false;
+                    Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                }
+            }
         }
 
 

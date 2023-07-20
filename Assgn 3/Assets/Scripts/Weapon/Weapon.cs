@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[Serializable]
 public class Weapon
 {
     
-    private string id, type, name, attack, range, speed;
+    public string id, type, name, attack, range, speed;
     // private string name;
 
     public Weapon(string id, string type, string name, string attack, string range, string speed){

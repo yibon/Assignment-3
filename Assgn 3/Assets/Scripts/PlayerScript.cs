@@ -24,8 +24,24 @@ public class PlayerScript : MonoBehaviour
         
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         UpdatePlayer();
-    }
+        _player.SetPlayerWeapon("Enemy");
 
+    }
+    private void Update()
+    {
+        ToggleWeapon();
+    }
+    public void ToggleWeapon(){
+        
+        if(Input.GetKeyUp(KeyCode.Space)){
+            // Debug.LogWarning("Player weapon is " + _player.GetPlayerWeapon());
+            if(_player.GetPlayerWeapon() == "Enemy"){
+                _player.SetPlayerWeapon("Ramen");
+            }else if(_player.GetPlayerWeapon() == "Ramen"){
+                _player.SetPlayerWeapon("Enemy");
+            }
+        }
+    }
     public void MovePlayer (Vector2 direction)
     {
         //move player position
