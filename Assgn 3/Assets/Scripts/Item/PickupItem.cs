@@ -28,8 +28,11 @@ public class PickupItem : MonoBehaviour
                 followSpeed = 5.0f;
                 offset = Vector3.zero;
                 if(ReachedParent()){
+                    // Hide game objects from user POV
                     parent.GetComponent<Bowl>().AddToBowl(this.gameObject);
                     this.gameObject.SetActive(false);
+                    
+                    spawnController.pickedUp[0] = null; // Set to null so Player can pick up items again
                 }
             }
             else if (parent.tag == "Player"){
@@ -48,18 +51,25 @@ public class PickupItem : MonoBehaviour
         return distance <= reachDistance;
     }
    
-    // when the GameObjects collider arrange for this GameObject to travel to the left of the screen
-    void OnTriggerStay2D(Collider2D col)
-    {
-        // If press spacebar and parent==null
-        // parent == null cause otherwise, it will run this code multiple times
-        // Take note: this is OnTriggerStay2D, it will run this code as long as player is in contact
-        if(Input.GetKey(KeyCode.Space) && parent == null){
+    // // when the GameObjects collider arrange for this GameObject to travel to the left of the screen
+    // void OnTriggerStay2D(Collider2D col)
+    // {
+    //     // If press spacebar and parent==null
+    //     // parent == null cause otherwise, it will run this code multiple times
+    //     // Take note: this is OnTriggerStay2D, it will run this code as long as player is in contact
+    //     if(Input.GetKey(KeyCode.Space) && parent == null){
+    //         parent = col.gameObject.transform;
+    //         spawnController.pickedUp.Add(this.gameObject);
+    //         spawnController.Trigger();
+    //     }   
+            
+        
+    // }
+    void OnTriggerEnter2D(Collider2D col){
+        if(spawnController.pickedUp[0] == null){
             parent = col.gameObject.transform;
             spawnController.pickedUp.Add(this.gameObject);
             spawnController.Trigger();
-        }   
-            
-        
+        }
     }
 }

@@ -11,7 +11,7 @@ public class Player
 {
     private string currrentCharacter;
 
-    private string playerName;
+    private string playerName, playerWeapon;
     private int playerHP;
     private int playerAtt;
     private int playerSpeed;
@@ -52,7 +52,12 @@ public class Player
         isDirty = false;
         return true;
     }
-
+    public void SetPlayerWeapon(string weaponName){
+        playerWeapon = weaponName;
+    }
+    public string GetPlayerWeapon(){
+        return playerWeapon;
+    }
     public string GetPlayerName()
     {
         UpdatePlayerStats();

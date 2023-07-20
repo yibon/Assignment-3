@@ -1,0 +1,81 @@
+{
+    "ingredient": [
+        {
+            "ingredientId": "6001",
+            "ingredientName": "Noodles",
+            "buffDescription": "-1",
+            "buffType": "-1",
+            "buffValue": "-1"
+        },
+        {
+            "ingredientId": "6002",
+            "ingredientName": "Pork Slices",
+            "buffDescription": "-1",
+            "buffType": "-1",
+            "buffValue": "-1"
+        },
+        {
+            "ingredientId": "6003",
+            "ingredientName": "Green Onions",
+            "buffDescription": "-1",
+            "buffType": "-1",
+            "buffValue": "-1"
+        },
+        {
+            "ingredientId": "6004",
+            "ingredientName": "Nori",
+            "buffDescription": "-1",
+            "buffType": "-1",
+            "buffValue": "-1"
+        },
+        {
+            "ingredientId": "6005",
+            "ingredientName": "Egg",
+            "buffDescription": "-1",
+            "buffType": "-1",
+            "buffValue": "-1"
+        },
+        {
+            "ingredientId": "6006",
+            "ingredientName": "Chashu",
+            "buffDescription": "-1",
+            "buffType": "-1",
+            "buffValue": "-1"
+        },
+        {
+            "ingredientId": "6007",
+            "ingredientName": "Bean Sprouts",
+            "buffDescription": "-1",
+            "buffType": "-1",
+            "buffValue": "-1"
+        },
+        {
+            "ingredientId": "6008",
+            "ingredientName": "Corn",
+            "buffDescription": "-1",
+            "buffType": "-1",
+            "buffValue": "-1"
+        },
+        {
+            "ingredientId": "6011",
+            "ingredientName": "Wagyu Beef",
+            "buffDescription": "Increase [itemType] by [itemValue] ",
+            "buffType": "HP",
+            "buffValue": "20"
+        },
+        {
+            "ingredientId": "6012",
+            "ingredientName": "Abalone",
+            "buffDescription": "Increase [itemType] by [itemValue] ",
+            "buffType": "ATTK",
+            "buffValue": "20"
+        },
+        {
+            "ingredientId": "6013",
+            "ingredientName": "Snow Crab",
+            "buffDescription": "Increase [itemType] by [itemValue] ",
+            "buffType": "SPD",
+            "buffValue": "20"
+        }
+    ]
+}

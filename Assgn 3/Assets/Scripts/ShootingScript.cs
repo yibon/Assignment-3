@@ -62,14 +62,23 @@ public class ShootingScript : MonoBehaviour
                     // Check if collidersUnderMouse[i] is the type of object you want using tags or GetComponent()
                     // Then do what you want to it
                     GameObject obj = collidersUnderMouse[i].gameObject;
-                    if(obj.tag == "Bowl"){
-                        ingredients.pickedUp[0].GetComponent<PickupItem>().parent = obj.transform;
+                    
+                    if(Game.GetPlayer().GetPlayerWeapon() == "Ramen"){
+                        if(obj.tag == "Bowl"){
+                            // Set pickup parent's so it will follow it
+                            ingredients.pickedUp[0].GetComponent<PickupItem>().parent = obj.transform;
+
+                            // Add picked up ingredient into bowl
+                            obj.GetComponent<Bowl>().AddToBowl(ingredients.pickedUp[0]);
+                        }
                     }
                 }
             }
             else{
-                canFire = false;
-                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                if(Game.GetPlayer().GetPlayerWeapon() == "Enemy"){
+                    canFire = false;
+                    Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                }
             }
         }
 

@@ -4,29 +4,63 @@ using UnityEngine;
 
 public class Bowl : MonoBehaviour
 {
+
     public HashSet<GameObject> myIngredients = new HashSet<GameObject>();
     public HashSet<GameObject> receivedIngredient = new HashSet<GameObject>();
     public bool recipeComplete = false;
+    public BowlController controller;
+    [SerializeField] private GameObject ingredientImagePrefab;
+    
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Transform child in this.transform){
-            myIngredients.Add(child.gameObject);
-        }
+        // // Read from json instead
+        // foreach(Transform child in this.transform){
+        //     myIngredients.Add(child.gameObject);
+        // }
+
+        GetNextStatue();
         
-        // myIngredients = SortReceivedIngredients(myIngredients);
-       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(IsBowlFull()){
-            Debug.Log("This recipe is done.");
+        if(IsBowlFull() && !recipeComplete){
+            
             recipeComplete = true;
+            // GetNextStatue();
         }
         else{
 
+        }
+    }
+    private void GetNextStatue(){
+        Recipe recipe = controller.NextStatue(this);
+        if(recipe != null){
+
+            float startingX = this.transform.position.x - 1.5f;
+            
+            for(int i=0; i<recipe.ingredientList.Length; i++){
+                string currentIngredient = recipe.ingredientList[i];
+                
+                GameObject tempIngredient = Instantiate(ingredientImagePrefab, this.transform.position, transform.rotation);
+                
+                tempIngredient.transform.parent = this.transform;
+                tempIngredient.transform.localScale = new Vector3(0.05f, 0.05f,0.05f);
+                tempIngredient.transform.position = new Vector3(startingX + i*1.5f, this.transform.position.y + 1f, 1.0f);
+                
+                // Set the sprite
+                Sprite currentSprite = controller.GetSprite(currentIngredient);
+                if(currentSprite != null)
+                    tempIngredient.GetComponent<SpriteRenderer>().sprite = currentSprite;
+
+                tempIngredient.name = currentIngredient;
+                myIngredients.Add(tempIngredient);
+            }
+        }
+        else{
+            // Game ended
         }
     }
     public bool IsBowlFull(){
@@ -51,16 +85,6 @@ public class Bowl : MonoBehaviour
                 break;
             }
         }
-        // receivedIngredient = SortReceivedIngredients(receivedIngredient);
     }
 
-    // private HashSet<GameObject> SortIngredients(HashSet<GameObject> arr)
-    // {
-    //     // Convert the HashSet to a List, sort it by name, and then create a new HashSet
-    //     List<GameObject> sortedList = arr.ToList();
-    //     sortedList.Sort((a, b) => string.Compare(a.name, b.name));
-    //     arr = new HashSet<GameObject>(sortedList);
-
-    //     return arr;
-    // }
 }
