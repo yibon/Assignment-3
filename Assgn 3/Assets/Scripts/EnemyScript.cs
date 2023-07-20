@@ -22,13 +22,14 @@ public class EnemyScript : MonoBehaviour
     {
         GameObject playerObject = GameObject.Find("Player");
         player = playerObject.GetComponent<PlayerScript>();
-    }
 
-    public void OnDataLoadEnemy()
-    {
         Game.SetMob(new Mob(currEnemyId));
         UpdateMob();
     }
+
+    //public void OnDataLoadEnemy()
+    //{
+    //}
 
     private void FixedUpdate()
     {

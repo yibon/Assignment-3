@@ -23,10 +23,10 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        DataManager dataManager = GetComponent<DataManager>();
-        dataManager.LoadRefCharacterData(player.OnDataLoadPlayer);
-        dataManager.LoadRefEnemyData(enemy.OnDataLoadEnemy);
-        dataManager.LoadRefEWaveData(eWave.OnDataLoadEWave);
+        //DataManager dataManager = GetComponent<DataManager>();
+        //dataManager.LoadRefCharacterData(player.OnDataLoadPlayer);
+        //dataManager.LoadRefEnemyData(enemy.OnDataLoadEnemy);
+        //dataManager.LoadRefEWaveData(eWave.OnDataLoadEWave);
 
     }
 

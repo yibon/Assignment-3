@@ -17,12 +17,17 @@ public class PlayerScript : MonoBehaviour
     public static int currAttack;
     public static int currSpeed;
 
-    public void OnDataLoadPlayer()
+    private void Start()
     {
         //Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         UpdatePlayer();
+
     }
+
+    //public void OnDataLoadPlayer()
+    //{
+    //}
 
     public void MovePlayer (Vector2 direction)
     {

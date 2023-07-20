@@ -37,14 +37,13 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        DataManager dataManager = GetComponent<DataManager>();
-        dataManager.LoadRefDialogueData(OnDataLoad);
+        //DataManager dataManager = GetComponent<DataManager>();
+        //dataManager.LoadRefDialogueData(OnDataLoad);
+
         // Comment this line when there are multiple dialogues involved
         //_dialogue = Game.GetDialogueByRefId(currCutscene);
-    }
 
-    public void OnDataLoad()
-    {
+
         switch (currCutscene)
         {
             case "601":
@@ -58,6 +57,10 @@ public class DialogueManager : MonoBehaviour
         NextLine();
     }
 
+    //public void OnDataLoad()
+    //{
+    //}
+
     // in update,
     private void Update()
     {
@@ -68,7 +71,6 @@ public class DialogueManager : MonoBehaviour
             // nextline function
             NextLine();
         }
-
     }
 
     private void NextLine()

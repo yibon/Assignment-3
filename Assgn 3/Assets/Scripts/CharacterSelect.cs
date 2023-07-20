@@ -29,15 +29,15 @@ public class CharacterSelect : MonoBehaviour
 
     private void Start()
     {
-        DataManager dataManager = GetComponent<DataManager>();
-        dataManager.LoadRefCharacterData(OnDataLoad);
-    }
-
-    private void OnDataLoad()
-    {
+        //DataManager dataManager = GetComponent<DataManager>();
+        //dataManager.LoadRefCharacterData(OnDataLoad);
         Debug.Log("CharacterSelect Loaded!");
         _character = Game.GetCharacterByRefId(currCharacter);
     }
+
+    //private void OnDataLoad()
+    //{
+    //}
 
     private void Update()
     {

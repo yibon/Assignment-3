@@ -11,7 +11,32 @@ using System;
 using UnityEngine.AddressableAssets;
 
 public class DataManager : MonoBehaviour
-{ 
+{
+    int dataIsLoaded;
+
+    private void Start()
+    {
+        dataIsLoaded = 0;
+
+        LoadRefDialogueData(onDataLoad);
+        LoadRefCharacterData(onDataLoad);
+        LoadRefEnemyData(onDataLoad);
+        LoadRefEWaveData(onDataLoad);
+    }
+
+
+    private void Update()
+    {
+        if (dataIsLoaded == 4)
+        {
+            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
+        }
+    }
+    private void onDataLoad()
+    {
+        ++dataIsLoaded;
+    }
+
     public void LoadRefDialogueData(Action onLoaded)
     {
         StartCoroutine(DoLoadRefDialogueData("DialogueData", onLoaded));
@@ -26,7 +51,8 @@ public class DataManager : MonoBehaviour
         {
             loadedText = op.Result.text;
 
-            processing = false; 
+            processing = false;
+
         };
 
         while (processing)

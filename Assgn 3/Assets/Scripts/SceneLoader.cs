@@ -13,6 +13,7 @@ public class SceneLoader
     public enum Scenes
     {
         MainMenu,
+        LoadingScreen,
         Cutscene1,
         CharacterSelect,
         MainScene,
