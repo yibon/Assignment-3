@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ShootingScript : MonoBehaviour
 {
@@ -52,43 +51,12 @@ public class ShootingScript : MonoBehaviour
         }
 
 
-        // if (Input.GetMouseButton(0) && canFire)
-        // {
-        //     canFire = false;
-        //     Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-        // }
+        if (Input.GetMouseButton(0) && canFire)
+        {
+            canFire = false;
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+        }
 
-        
-        Collider2D[] collidersUnderMouse = new Collider2D[4];
-        int numCollidersUnderMouse = Physics2D.OverlapPoint(mousePos, new ContactFilter2D(), collidersUnderMouse);
-        
-        if (numCollidersUnderMouse>0){
-                
-            for (int i = 0; i < numCollidersUnderMouse; ++i)
-            {
-                // Check if collidersUnderMouse[i] is the type of object you want using tags or GetComponent()
-                // Then do what you want to it
-                
-               
-                    if(collidersUnderMouse[i].gameObject.tag == "Bowl"){
-                        Debug.Log(collidersUnderMouse[i]);
-                        break;
-                    }
-                    else if (collidersUnderMouse[i].gameObject.tag == "Bin"){
-                        
-                    
-                  
-                    
-                    
-                }
-            }
-        }
-        else{
-            if (Input.GetMouseButton(0) && canFire){
-                canFire = false;
-                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-            }
-        }
+
     }
-    
 }
