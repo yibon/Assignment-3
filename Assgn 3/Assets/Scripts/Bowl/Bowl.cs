@@ -29,7 +29,7 @@ public class Bowl : MonoBehaviour
         if(IsBowlFull() && !recipeComplete){
             
             recipeComplete = true;
-            // GetNextStatue();
+            GetNextStatue();
         }
         else{
 

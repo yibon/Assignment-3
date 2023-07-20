@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour
     public void ToggleWeapon(){
         
         if(Input.GetKeyUp(KeyCode.Space)){
-            Debug.LogWarning("Player weapon is " + _player.GetPlayerWeapon());
+            // Debug.LogWarning("Player weapon is " + _player.GetPlayerWeapon());
             if(_player.GetPlayerWeapon() == "Enemy"){
                 _player.SetPlayerWeapon("Ramen");
             }else if(_player.GetPlayerWeapon() == "Ramen"){

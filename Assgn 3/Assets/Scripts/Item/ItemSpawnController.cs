@@ -12,7 +12,7 @@ public class ItemSpawnController : MonoBehaviour
 
     [SerializeField] private GameObject ingredientPrefab;
     // [SerializeField] private List<Image> allIngredients = new List<Image>();
-    [SerializeField] private List<Sprite> allIngredients = new List<Sprite>();
+    [SerializeField] public List<Sprite> allIngredients = new List<Sprite>();
 
     private Vector3 minRandPoint = new Vector3(-8, -4, 0);
     private Vector3 maxRandPoint = new Vector3(8, 4, 0);

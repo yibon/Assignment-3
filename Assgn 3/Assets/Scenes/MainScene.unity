@@ -1020,13 +1020,7 @@ MonoBehaviour:
   statues: []
   bowls: []
   statueCounter: 0
-  allIngredients:
-  - {fileID: 21300000, guid: 1db9bd8af2586304c8c6a147670474f7, type: 3}
-  - {fileID: 21300000, guid: ad303d83dabf5ba4c987015bb686cf0a, type: 3}
-  - {fileID: 21300000, guid: 8ba2576116ce72e4981bff91fb08d293, type: 3}
-  - {fileID: 21300000, guid: 455ace3c978d33c409d101e839d9cb2e, type: 3}
-  - {fileID: 21300000, guid: aaf49637f48832f4a9bddf15fc188e12, type: 3}
-  - {fileID: 21300000, guid: 9e9293ac5d2b57249a448030c2816891, type: 3}
+  spawnController: {fileID: 1652578952}
   GameCompleted: 0
 --- !u!1 &688831623
 GameObject:
@@ -3051,7 +3045,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9e9293ac5d2b57249a448030c2816891, type: 3}
   - {fileID: 21300000, guid: 8ba2576116ce72e4981bff91fb08d293, type: 3}
   - {fileID: 21300000, guid: aaf49637f48832f4a9bddf15fc188e12, type: 3}
+  - {fileID: 21300000, guid: a98ddacce88e3064f91af89941426a58, type: 3}
+  - {fileID: 21300000, guid: c79e42b2dc513e643b5246c214323cd5, type: 3}
   pickedUp: []
+  bowlController: {fileID: 0}
+  waveList:
+    ingredientwave: []
+  waveDatas: []
+  waveCounter: 0
+  spawnedCount: 0
 --- !u!4 &1652578953
 Transform:
   m_ObjectHideFlags: 0

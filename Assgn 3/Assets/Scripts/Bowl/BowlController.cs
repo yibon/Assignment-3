@@ -12,10 +12,11 @@ public class BowlController : MonoBehaviour
     public List<Bowl> bowls = new List<Bowl>();
     public int statueCounter = 0;
     
-    [SerializeField] private List<Sprite> allIngredients = new List<Sprite>();
+    // [SerializeField] private List<Sprite> allIngredients = new List<Sprite>();
+    public ItemSpawnController spawnController;
     public bool GameCompleted = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
         // Read json
@@ -44,7 +45,7 @@ public class BowlController : MonoBehaviour
        
     }
     public Sprite GetSprite(string name){
-        foreach(Sprite sprite in allIngredients){
+        foreach(Sprite sprite in spawnController.allIngredients){
             if(name == sprite.name)
                 return sprite;
         }
@@ -52,7 +53,7 @@ public class BowlController : MonoBehaviour
     }
     public Recipe NextStatue(Bowl bowl){
         if (statueCounter <= statues.Count){
-            return statues[++statueCounter];
+            return statues[statueCounter++];
         }
         else{
             GameCompleted = true;
