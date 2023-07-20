@@ -25,8 +25,10 @@ public class GameController : MonoBehaviour
         DataManager dataManager = GetComponent<DataManager>();
         dataManager.LoadRefCharacterData();
         dataManager.LoadRefEnemyData();
+        dataManager.LoadRefEWaveData();
 
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
+
         //Debug.Log(Game.GetPlayer().GetCurrentCharacter());
     }
 
@@ -54,12 +56,6 @@ public class GameController : MonoBehaviour
     private void FixedUpdate()
     {
         player.MovePlayer(direction * Time.fixedDeltaTime);
-
-        // following speed should be taken from data
-        if (EnemyScript.enemycurrHP> 0)
-        {
-            enemy.FollowPlayer(player.GetPosition(), 1f, EnemyScript.enemycurrSpeed * Time.fixedDeltaTime);
-        }
     }
 
 }

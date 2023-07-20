@@ -14,4 +14,5 @@ public class RefData
     public List<RefDialogue> RefDialogue;
     public List<RefCharacter> RefCharacter;
     public List<RefEnemy> RefEnemy;
+    public List<RefEWave> RefEWave;
 }

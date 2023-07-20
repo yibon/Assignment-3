@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bowl : MonoBehaviour
 {
-    public List<GameObject> myIngredients = new List<GameObject>();
-    public List<GameObject> receivedIngredient = new List<GameObject>();
+    public HashSet<GameObject> myIngredients = new HashSet<GameObject>();
+    public HashSet<GameObject> receivedIngredient = new HashSet<GameObject>();
     public bool recipeComplete = false;
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,7 @@ public class Bowl : MonoBehaviour
             myIngredients.Add(child.gameObject);
         }
         
-        myIngredients.Sort(CompareByName);
+        // myIngredients = SortReceivedIngredients(myIngredients);
        
     }
 
@@ -31,17 +31,15 @@ public class Bowl : MonoBehaviour
     }
     public bool IsBowlFull(){
         
-        receivedIngredient.Sort(CompareByName);
-
-        if (myIngredients.Count != receivedIngredient.Count)
-            return false;
-        
-        for(int i=0; i<receivedIngredient.Count; i++){
-            if (receivedIngredient[i] != myIngredients[i])
-                return false;
+        // Check if the two sets have the same elements
+        if (receivedIngredient.SetEquals(myIngredients))
+        {
+            return true;
         }
-
-        return true;
+        else
+        {
+            return false;
+        }
     }
    
     public void AddToBowl(GameObject ingredient){
@@ -53,12 +51,16 @@ public class Bowl : MonoBehaviour
                 break;
             }
         }
-        receivedIngredient.Sort(CompareByName);
+        // receivedIngredient = SortReceivedIngredients(receivedIngredient);
     }
 
-     // Comparison method to sort GameObjects by their names
-    private int CompareByName(GameObject a, GameObject b)
-    {
-        return a.name.CompareTo(b.name);
-    }
+    // private HashSet<GameObject> SortIngredients(HashSet<GameObject> arr)
+    // {
+    //     // Convert the HashSet to a List, sort it by name, and then create a new HashSet
+    //     List<GameObject> sortedList = arr.ToList();
+    //     sortedList.Sort((a, b) => string.Compare(a.name, b.name));
+    //     arr = new HashSet<GameObject>(sortedList);
+
+    //     return arr;
+    // }
 }

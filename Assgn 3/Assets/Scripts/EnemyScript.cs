@@ -11,37 +11,45 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public static float enemycurrHP;
-    public static float enemycurrAttack;
-    public static float enemycurrSpeed;
+    public float enemycurrHP;
+    public float enemycurrAttack;
+    public float enemycurrSpeed;
 
+    public string currEnemyId;
+
+    public PlayerScript player;
     private Mob _mob;
 
     private void Start()
     {
-        // Replace this with data
-        Game.SetMob(new Mob("3001"));
-
+        Game.SetMob(new Mob(currEnemyId));
         UpdateMob();
+
+        GameObject playerObject = GameObject.Find("Player");
+        player = playerObject.GetComponent<PlayerScript>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        if (enemycurrHP > 0)
+        {
+            FollowPlayer(player.GetPosition(), 1f, enemycurrSpeed * Time.fixedDeltaTime);
+        }
     }
 
     public void FollowPlayer(Vector2 playerPos, float minDist, float followingSpeed)
     {
         if (Vector2.Distance(transform.position, playerPos) > minDist)
         {
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, followingSpeed);
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, followingSpeed * 0.3f);
         }
     }
-    
+
     private void TakeDamage()
     {
         //             vv Change this to the Weapon 
         enemycurrHP -= PlayerScript.currAttack;
-        if (enemycurrHP < 0)
+        if (enemycurrHP <= 0)
         {
             Destroy(gameObject);
         }
@@ -71,4 +79,9 @@ public class EnemyScript : MonoBehaviour
         enemycurrAttack = _mob.GetMobAtt();
         enemycurrSpeed = _mob.GetMobSpeed();
     }
+
+    //public void SetCurrentEnemy(string enemyId)
+    //{
+    //    currEnemyId = enemyId;
+    //}
 }

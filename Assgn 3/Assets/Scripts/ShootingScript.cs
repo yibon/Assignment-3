@@ -20,14 +20,14 @@ public class ShootingScript : MonoBehaviour
     public bool canFire;
     private float timer;
     public float timeBetwFiring;
-
-    public ItemSpawnController pickedItem;
+    public ItemSpawnController ingredients;
 
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         canFire = true;
+        ingredients = GameObject.FindObjectOfType<ItemSpawnController>();
     }
 
     // Update is called once per frame
@@ -53,31 +53,26 @@ public class ShootingScript : MonoBehaviour
 
         Collider2D[] collidersUnderMouse = new Collider2D[4];
         int numCollidersUnderMouse = Physics2D.OverlapPoint(mousePos, new ContactFilter2D(), collidersUnderMouse);
-        if(numCollidersUnderMouse>0){
-            if (Input.GetMouseButton(0) && canFire)
-            {
+        
+        if (Input.GetMouseButton(0) && canFire)
+        {
+            if(numCollidersUnderMouse>0){
                 for (int i = 0; i < numCollidersUnderMouse; ++i)
                 {
                     // Check if collidersUnderMouse[i] is the type of object you want using tags or GetComponent()
                     // Then do what you want to it
-                    GameObject collidedObj = collidersUnderMouse[i].gameObject;
-                    if(collidedObj.tag =="Bowl"){
-                        Debug.Log(pickedItem.pickedUp[0]);
-                        pickedItem.pickedUp[0].GetComponent<PickupItem>().parent = collidedObj.transform;
-                        // if(collidedObj.name == "Original Ramen"){
-                        //     collidedObj.GetComponent<Bowl>().
-                        // }
+                    GameObject obj = collidersUnderMouse[i].gameObject;
+                    if(obj.tag == "Bowl"){
+                        ingredients.pickedUp[0].GetComponent<PickupItem>().parent = obj.transform;
                     }
                 }
             }
-        }
-        else{
-            if (Input.GetMouseButton(0) && canFire)
-            {
+            else{
                 canFire = false;
                 Instantiate(bullet, bulletTransform.position, Quaternion.identity);
             }
         }
+
 
     }
 }

@@ -11,10 +11,12 @@ public static class Game
 {
     private static Player player;
     private static Mob mob;
+    private static EnemyWave enemyWave;
 
     private static List<Dialogue> dialogueList;
     private static List<Character> characterList;
     private static List<Enemy> enemyList;
+    private static List<EnemyWave> enemyWaveList;
 
     public static Player GetPlayer()
     {
@@ -79,5 +81,21 @@ public static class Game
     {
         return enemyList.Find(x => x.enemyId == _refId);
     }
+
+    public static List<EnemyWave> GetEnemyWaveList()
+    {
+        return enemyWaveList;
+    }
+
+    public static void SetEnemyWaveList(List<EnemyWave> _list)
+    {
+        enemyWaveList = _list;
+    }
+
+    public static EnemyWave GetEWaveByRefId(string _refId)
+    {
+        return enemyWaveList.Find(x => x.waveId == _refId);
+    }
+
 
 }
