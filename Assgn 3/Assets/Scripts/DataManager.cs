@@ -24,7 +24,7 @@ public class DataManager : MonoBehaviour
     public void LoadDialogueRefData()
     {
         // 
-        string filePath = Path.Combine(Application.dataPath, "Data/dialogue_data.txt");
+        string filePath = "Assets/Data/dialogue_data.txt";
         string dataString = File.ReadAllText(filePath);
 
         // Tell the json file that you would like to get data from data string into the dialogue data class
@@ -57,7 +57,7 @@ public class DataManager : MonoBehaviour
 
     public void LoadRefCharacterData()
     {
-        string filePath = Path.Combine(Application.dataPath, "Data/character_data.txt");
+        string filePath = "Assets/Data/character_data.txt";
         string dataString = File.ReadAllText(filePath);
 
         // Tell the json file that you would like to get data from data string into the dialogue data class
@@ -86,7 +86,7 @@ public class DataManager : MonoBehaviour
 
     public void LoadRefEnemyData()
     {
-        string filePath = Path.Combine(Application.dataPath, "Data/enemy_data.txt");
+        string filePath = "Assets/Data/enemy_data.txt";
         string dataString = File.ReadAllText(filePath);
 
         // Tell the json file that you would like to get data from data string into the enemy data class
@@ -115,7 +115,7 @@ public class DataManager : MonoBehaviour
 
     public void LoadRefEWaveData()
     {
-        string filePath = Path.Combine(Application.dataPath, "Data/ewave_data.txt");
+        string filePath = "Assets/Data/ewave_data.txt";
         string dataString = File.ReadAllText(filePath);
 
         RefData eWaveData = JsonUtility.FromJson<RefData>(dataString);

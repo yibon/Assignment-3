@@ -20,7 +20,7 @@ public class BowlController : MonoBehaviour
     {
         
         // Read json
-        string json_statues =  Application.dataPath + "/Data/JSON/"+ "statues.json";
+        string json_statues = "Assets/Data/JSON/statues.json";
         
         if (File.Exists(json_statues))
         {

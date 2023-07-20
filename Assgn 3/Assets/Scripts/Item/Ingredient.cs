@@ -9,7 +9,7 @@ public class Ingredient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string json_ingredient =  Application.dataPath + "/Data/JSON/"+ "ingredients.json";
+        string json_ingredient =   "Assets/Data/JSON/ingredients.json";
         
         if (File.Exists(json_ingredient))
         {
