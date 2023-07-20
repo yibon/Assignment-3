@@ -21,6 +21,22 @@ MonoBehaviour:
     m_Address: Assets/Sprites
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: df38be916e9ade343950e9f1fe62fcfb
+    m_Address: CharacterData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3c38a0ed885941e4fb829722fd2b857f
+    m_Address: DialogueData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 93ffd545b3f34a449844f7f624db5871
+    m_Address: EnemyData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2af7ddf488158ec40989d3ad719ed007
+    m_Address: EWaveData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 75aa4d414f05b21488d3f819e979cdfb, type: 2}
   m_SchemaSet:

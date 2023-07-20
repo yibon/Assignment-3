@@ -17,11 +17,7 @@ public class EWaveManager : MonoBehaviour
     private int[] splitEnemyCountint;
     private string[] splitEnemySpawnPt;
 
-    //in start
-    //currWave = initialWave;
-    //    spawnenemy();
-
-    private void Start()
+    public void OnDataLoadEWave()
     {
         currEWave = "4001";
         SpawnEnemy();

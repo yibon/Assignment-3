@@ -17,11 +17,9 @@ public class PlayerScript : MonoBehaviour
     public static int currAttack;
     public static int currSpeed;
 
-    private void Start()
+    public void OnDataLoadPlayer()
     {
-        // Delete this line if you want the character to be chosen from the select screen
-        // CharacterSelect.currCharacter = "1";
-        
+        //Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         UpdatePlayer();
     }
