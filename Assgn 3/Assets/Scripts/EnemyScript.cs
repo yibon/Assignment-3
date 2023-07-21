@@ -7,8 +7,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class EnemyScript : MonoBehaviour
 {
     public float enemycurrHP;
@@ -22,12 +20,16 @@ public class EnemyScript : MonoBehaviour
 
     private void Start()
     {
-        Game.SetMob(new Mob(currEnemyId));
-        UpdateMob();
-
         GameObject playerObject = GameObject.Find("Player");
         player = playerObject.GetComponent<PlayerScript>();
+
+        Game.SetMob(new Mob(currEnemyId));
+        UpdateMob();
     }
+
+    //public void OnDataLoadEnemy()
+    //{
+    //}
 
     private void FixedUpdate()
     {

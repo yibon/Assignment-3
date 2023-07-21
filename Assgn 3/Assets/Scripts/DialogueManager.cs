@@ -37,11 +37,12 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        DataManager dataManager = GetComponent<DataManager>();
-        dataManager.LoadDialogueRefData();
+        //DataManager dataManager = GetComponent<DataManager>();
+        //dataManager.LoadRefDialogueData(OnDataLoad);
 
         // Comment this line when there are multiple dialogues involved
         //_dialogue = Game.GetDialogueByRefId(currCutscene);
+
 
         switch (currCutscene)
         {
@@ -49,13 +50,16 @@ public class DialogueManager : MonoBehaviour
                 currDialogue = "601001";
                 break;
             case "602":
-                Debug.Log("yeeeeeeeeee");
                 currDialogue = "602001";
                 break;
         }
 
         NextLine();
     }
+
+    //public void OnDataLoad()
+    //{
+    //}
 
     // in update,
     private void Update()
@@ -67,7 +71,6 @@ public class DialogueManager : MonoBehaviour
             // nextline function
             NextLine();
         }
-
     }
 
     private void NextLine()
@@ -114,14 +117,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // end dialogue function:
-    // check the cutsceneset id
-    // if the id is 601,
-    // game starts
-
-    // if id is 602,
-    // endgame sequence commences.
-
     private void ImageDim(Dialogue.CurrentSpeaker currSpeaker)
     {
         if (currSpeaker == Dialogue.CurrentSpeaker.RIGHT)
@@ -153,13 +148,7 @@ public class DialogueManager : MonoBehaviour
     private void ChoicesSplit()
     {
         splitedChoices = _dialogue.choices.Split('#', '@', '#');
-
-        //for (int i = 1; i < splitedChoices.Length; i += 2)
-        //{
-        //    Debug.Log(splitedChoices[i]);
-        //}
     }
-
 }
 
 

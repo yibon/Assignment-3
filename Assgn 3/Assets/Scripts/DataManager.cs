@@ -8,30 +8,64 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
-using UnityEngine.TextCore.Text;
+using UnityEngine.AddressableAssets;
 
 public class DataManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    int dataIsLoaded;
+
+    private void Start()
     {
-        LoadDialogueRefData();
-        LoadRefCharacterData();
-        LoadRefEnemyData();
-        LoadRefEWaveData();
+        dataIsLoaded = 0;
+
+        LoadRefDialogueData(onDataLoad);
+        LoadRefCharacterData(onDataLoad);
+        LoadRefEnemyData(onDataLoad);
+        LoadRefEWaveData(onDataLoad);
     }
 
-    public void LoadDialogueRefData()
+
+    private void Update()
     {
-        // 
-        string filePath = "Assets/Data/dialogue_data.txt";
-        string dataString = File.ReadAllText(filePath);
+        if (dataIsLoaded == 4)
+        {
+            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
+        }
+    }
+    private void onDataLoad()
+    {
+        ++dataIsLoaded;
+    }
 
-        // Tell the json file that you would like to get data from data string into the dialogue data class
-        RefData dialogueData = JsonUtility.FromJson<RefData>(dataString);
+    public void LoadRefDialogueData(Action onLoaded)
+    {
+        StartCoroutine(DoLoadRefDialogueData("DialogueData", onLoaded));
+    }
 
-        // Process Data
+    public IEnumerator DoLoadRefDialogueData(string path, Action onLoaded)
+    {
+        bool processing = true;
+        string loadedText = "";
+
+        Addressables.LoadAssetAsync<TextAsset>(path).Completed += (op) =>
+        {
+            loadedText = op.Result.text;
+
+            processing = false;
+
+        };
+
+        while (processing)
+        {
+            yield return null;
+               
+        }
+
+        RefData dialogueData = JsonUtility.FromJson<RefData>(loadedText);
+
         ProcessDialogueData(dialogueData);
+
+        onLoaded?.Invoke();
     }
 
     private void ProcessDialogueData(RefData dialogueData)
@@ -55,16 +89,35 @@ public class DataManager : MonoBehaviour
         // Debug.Log(Game.GetDialogueList().Count);
     }
 
-    public void LoadRefCharacterData()
+    public void LoadRefCharacterData(Action onLoaded)
     {
-        string filePath = "Assets/Data/character_data.txt";
-        string dataString = File.ReadAllText(filePath);
+        StartCoroutine(DoLoadRefCharacterData("CharacterData", onLoaded));
+    }
+
+    public IEnumerator DoLoadRefCharacterData(string path, Action onLoaded)
+    {
+        bool processing = true;
+        string loadedText = "";
+
+        Addressables.LoadAssetAsync<TextAsset>(path).Completed += (op) =>
+        {
+            loadedText = op.Result.text;
+
+            processing = false;
+        };
+
+        while (processing)
+        {
+            yield return null;
+        }
 
         // Tell the json file that you would like to get data from data string into the dialogue data class
-        RefData characterData = JsonUtility.FromJson<RefData>(dataString);
+        RefData characterData = JsonUtility.FromJson<RefData>(loadedText);
 
         // Process Data
         ProcessCharacterData(characterData);
+
+        onLoaded?.Invoke();
     }
 
     private void ProcessCharacterData(RefData characterData)
@@ -84,16 +137,36 @@ public class DataManager : MonoBehaviour
         //Debug.Log(Game.GetCharacterList().Count);
     }
 
-    public void LoadRefEnemyData()
+    public void LoadRefEnemyData(Action onLoaded)
     {
-        string filePath = "Assets/Data/enemy_data.txt";
-        string dataString = File.ReadAllText(filePath);
+        StartCoroutine(DoLoadRefEnemyData("EnemyData", onLoaded));
+    }
+
+    public IEnumerator DoLoadRefEnemyData(string path, Action onLoaded)
+    {
+        bool processing = true;
+        string loadedText = "";
+
+        Addressables.LoadAssetAsync<TextAsset>(path).Completed += (op) =>
+        {
+            loadedText = op.Result.text;
+
+            processing = false;
+        };
+
+        while (processing)
+        {
+            yield return null;
+
+        }
 
         // Tell the json file that you would like to get data from data string into the enemy data class
-        RefData enemyData = JsonUtility.FromJson<RefData>(dataString);
+        RefData enemyData = JsonUtility.FromJson<RefData>(loadedText);
 
         // Process Data
         ProcessEnemyData(enemyData);
+
+        onLoaded?.Invoke();
     }
 
     private void ProcessEnemyData(RefData enemyData)
@@ -113,14 +186,35 @@ public class DataManager : MonoBehaviour
         //Debug.Log("FEWFEWFEW " + Game.GetEnemyList().Count);
     }
 
-    public void LoadRefEWaveData()
+    public void LoadRefEWaveData(Action onLoaded)
     {
-        string filePath = "Assets/Data/ewave_data.txt";
-        string dataString = File.ReadAllText(filePath);
+        StartCoroutine(DoLoadRefEWaveData("EWaveData", onLoaded));
+    }
 
-        RefData eWaveData = JsonUtility.FromJson<RefData>(dataString);
+    public IEnumerator DoLoadRefEWaveData(string path, Action onLoaded)
+    {
+        bool processing = true;
+        string loadedText = "";
+
+        Addressables.LoadAssetAsync<TextAsset>(path).Completed += (op) =>
+        {
+            loadedText = op.Result.text;
+
+            processing = false;
+        };
+
+        while (processing)
+        {
+            yield return null;
+
+        }
+
+
+        RefData eWaveData = JsonUtility.FromJson<RefData>(loadedText);
 
         ProcessEWaveData(eWaveData);
+
+        onLoaded?.Invoke();
     }
 
     private void ProcessEWaveData(RefData eWaveData)

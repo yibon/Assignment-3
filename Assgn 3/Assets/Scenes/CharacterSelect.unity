@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 183145857}
-  - component: {fileID: 183145856}
   - component: {fileID: 183145855}
   m_Layer: 0
   m_Name: CharacterController
@@ -159,18 +158,6 @@ MonoBehaviour:
   hpText: {fileID: 2132977983}
   attText: {fileID: 979835242}
   speedText: {fileID: 466840756}
---- !u!114 &183145856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183145854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453c0c1ba6bb63b4085a0e24f78232a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &183145857
 Transform:
   m_ObjectHideFlags: 0

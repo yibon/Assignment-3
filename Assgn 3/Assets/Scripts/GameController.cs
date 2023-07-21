@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
     public PlayerScript player;
     public EnemyScript enemy;
+    public EWaveManager eWave;
 
     //public float followeingSpeed;
 
@@ -22,14 +23,11 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        DataManager dataManager = GetComponent<DataManager>();
-        dataManager.LoadRefCharacterData();
-        dataManager.LoadRefEnemyData();
-        dataManager.LoadRefEWaveData();
+        //DataManager dataManager = GetComponent<DataManager>();
+        //dataManager.LoadRefCharacterData(player.OnDataLoadPlayer);
+        //dataManager.LoadRefEnemyData(enemy.OnDataLoadEnemy);
+        //dataManager.LoadRefEWaveData(eWave.OnDataLoadEWave);
 
-        Game.SetPlayer(new Player(CharacterSelect.currCharacter));
-
-        //Debug.Log(Game.GetPlayer().GetCurrentCharacter());
     }
 
     private void Update()

@@ -29,15 +29,22 @@ public class CharacterSelect : MonoBehaviour
 
     private void Start()
     {
-        //currCharacter = "1";
+        //DataManager dataManager = GetComponent<DataManager>();
+        //dataManager.LoadRefCharacterData(OnDataLoad);
+        Debug.Log("CharacterSelect Loaded!");
+        _character = Game.GetCharacterByRefId(currCharacter);
     }
+
+    //private void OnDataLoad()
+    //{
+    //}
 
     private void Update()
     {
-        _character = Game.GetCharacterByRefId(currCharacter);
 
         if (_character != null)
         {
+            _character = Game.GetCharacterByRefId(currCharacter);
             buttonImage.color = Color.white;
             characterChosen = true;
             //Debug.Log(_character.characterId);
@@ -59,18 +66,21 @@ public class CharacterSelect : MonoBehaviour
     public void Choice1()
     {
         currCharacter = "1";
+        _character = Game.GetCharacterByRefId(currCharacter);
         characterImage.color = Color.red;
     }
 
     public void Choice2()
     {
         currCharacter = "2";
+        _character = Game.GetCharacterByRefId(currCharacter);
         characterImage.color = Color.green;
     }
 
     public void Choice3()
     {
         currCharacter = "3";
+        _character = Game.GetCharacterByRefId(currCharacter);
         characterImage.color = Color.blue;
     }
 
