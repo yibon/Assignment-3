@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 36615797}
   - component: {fileID: 36615796}
-  - component: {fileID: 36615795}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -141,18 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &36615795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36615794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453c0c1ba6bb63b4085a0e24f78232a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &36615796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1162957431}
   enemy: {fileID: 7748028295332215701, guid: f21a3567f276ddf439ca9472cfa2ca8f, type: 3}
+  eWave: {fileID: 0}
 --- !u!4 &36615797
 Transform:
   m_ObjectHideFlags: 0
