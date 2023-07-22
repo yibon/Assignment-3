@@ -3,6 +3,7 @@
 // File Name: Player.cs
 // Author: Yvonne Lim
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,10 @@ public class Player
 
     private bool isDirty;
 
+    public static Weapon RamenWeapon;
+    public static Weapon MainWeapon;
+
+    public static event Action<string> WeaponChanged;
     public Player (string currrentCharacter)
     {
         this.currrentCharacter = currrentCharacter;
@@ -54,6 +59,8 @@ public class Player
     }
     public void SetPlayerWeapon(string weaponName){
         playerWeapon = weaponName;
+        WeaponChanged?.Invoke(weaponName);
+
     }
     public string GetPlayerWeapon(){
         return playerWeapon;

@@ -3,6 +3,7 @@
 // File Name: PlayerScript.cs
 // Author: Yvonne Lim
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,7 +12,7 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    private Player _player;
+    [HideInInspector]public Player Player;
 
     public static int currHealth;
     public static int currAttack;
@@ -22,7 +23,7 @@ public class PlayerScript : MonoBehaviour
         //Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         UpdatePlayer();
-        _player.SetPlayerWeapon("Enemy");
+        Player.SetPlayerWeapon("Enemy");
 
     }
     private void Update()
@@ -32,11 +33,11 @@ public class PlayerScript : MonoBehaviour
     public void ToggleWeapon(){
         
         if(Input.GetKeyUp(KeyCode.Space)){
-            // Debug.LogWarning("Player weapon is " + _player.GetPlayerWeapon());
-            if(_player.GetPlayerWeapon() == "Enemy"){
-                _player.SetPlayerWeapon("Ramen");
-            }else if(_player.GetPlayerWeapon() == "Ramen"){
-                _player.SetPlayerWeapon("Enemy");
+            // Debug.LogWarning("Player weapon is " + Player.GetPlayerWeapon());
+            if(Player.GetPlayerWeapon() == "Enemy"){
+                Player.SetPlayerWeapon("Ramen");
+            }else if(Player.GetPlayerWeapon() == "Ramen"){
+                Player.SetPlayerWeapon("Enemy");
             }
         }
     }
@@ -62,13 +63,29 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("you ded");
         }
     }
+    public void AddHealth(int healthToAdd)
+    {
+        currHealth += healthToAdd;
+        Debug.Log(currHealth);
+        UpdatePlayer();
+    }
+    public void AddDamage(int damageToAdd)
+    {
+        currAttack += damageToAdd;
+        UpdatePlayer();
+    }
+    public void AddSpeed(int speedToAdd)
+    {
+        currSpeed += speedToAdd;
+        UpdatePlayer();
+    }
 
     public void UpdatePlayer()
     {
-        _player = Game.GetPlayer();
+        Player = Game.GetPlayer();
 
-        currHealth = _player.GetPlayerHP();
-        currAttack = _player.GetPlayerAtt();
-        currSpeed = _player.GetPlayerSpeed();
+        currHealth = Player.GetPlayerHP();
+        currAttack = Player.GetPlayerAtt();
+        currSpeed = Player.GetPlayerSpeed();
     }
 }

@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class Weapon
 {
     
     public string id, type, name, attack, range, speed;
+    public Sprite sprite;
     // private string name;
 
     public Weapon(string id, string type, string name, string attack, string range, string speed){

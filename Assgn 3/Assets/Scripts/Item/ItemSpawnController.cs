@@ -26,7 +26,14 @@ public class ItemSpawnController : MonoBehaviour
     public int waveCounter = 0;
     [SerializeField] private int spawnedCount = 0;
 
+    private Ingredient _ingredients;
+
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        _ingredients = GetComponent<Ingredient>();
+    }
     void Start()
     {
         // Read json
@@ -142,6 +149,13 @@ public class ItemSpawnController : MonoBehaviour
                             newIngredient.GetComponent<SpriteRenderer>().sprite = sprite;
                             newIngredient.name = sprite.name;
                             break;
+                        }
+                    }
+                    foreach (var ingredient in _ingredients.ingredientList.ingredient)
+                    {
+                        if(ingredient.ingredientId == ingredientToSpawn)
+                        {
+                            newIngredient.GetComponent<PickupItem>().data = ingredient;
                         }
                     }
 

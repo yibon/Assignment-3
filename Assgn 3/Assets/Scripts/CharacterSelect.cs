@@ -88,7 +88,7 @@ public class CharacterSelect : MonoBehaviour
     {
         if (characterChosen)
         {
-            SceneLoader.LoadScene(SceneLoader.Scenes.MainScene);
+            SceneLoader.LoadScene(SceneLoader.Scenes.WeaponSelection);
         }
     }
 

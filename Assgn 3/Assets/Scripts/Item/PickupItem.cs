@@ -5,14 +5,18 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour
 {
     private ItemSpawnController spawnController;
+    public IngredientData data;
     public Transform parent;
     public Vector3 offset;
     public float followSpeed = 2.0f;
     public float reachDistance = 0.1f;
+
+    private PlayerScript _player;
     // Start is called before the first frame update
     void Start()
     {
         spawnController = GameObject.FindObjectOfType<ItemSpawnController>();
+        _player = FindObjectOfType<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class PickupItem : MonoBehaviour
                     // Hide game objects from user POV
                     parent.GetComponent<Bowl>().AddToBowl(this.gameObject);
                     this.gameObject.SetActive(false);
-                    
+                    AdjustPlayerStats();
                     spawnController.pickedUp[0] = null; // Set to null so Player can pick up items again
                 }
             }
@@ -39,6 +43,22 @@ public class PickupItem : MonoBehaviour
                 followSpeed = 10.0f;
             }
             this.transform.position = Vector2.Lerp(this.transform.position, parentTransform.position + offset, followSpeed * Time.deltaTime);
+        }
+    }
+
+    private void AdjustPlayerStats()
+    {
+        if(data.buffType == "HP")
+        {
+            _player.AddHealth(int.Parse(data.buffValue));
+        }
+        if(data.buffType == "ATTK")
+        {
+            _player.AddDamage(int.Parse(data.buffValue));
+        }
+        if(data.buffType == "SPD")
+        {
+            _player.AddSpeed(int.Parse(data.buffValue));
         }
     }
 

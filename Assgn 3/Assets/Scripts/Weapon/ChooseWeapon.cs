@@ -62,6 +62,8 @@ public class ChooseWeapon : MonoBehaviour
                     mainWeapons.Add(weapons.weapons[i]);
                 else if (weapons.weapons[i].type == "201")
                     ramenWeapons.Add(weapons.weapons[i]);
+
+                weapons.weapons[i].sprite = weaponImages[i];
             }
             }
 
@@ -142,6 +144,15 @@ public class ChooseWeapon : MonoBehaviour
                 break;
             }
         }
+    }
+    /// <summary>
+    /// Loads the main scene
+    /// </summary>
+    public void ContinueToMainScene()
+    {
+        Player.MainWeapon = activeMain;
+        Player.RamenWeapon = activeRamen;
+        SceneLoader.LoadScene(SceneLoader.Scenes.MainScene);
     }
    
 }
