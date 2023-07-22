@@ -7,7 +7,7 @@ public class Ingredient : MonoBehaviour
 {
     public IngredientList ingredientList;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         string json_ingredient =   "Assets/Data/JSON/ingredients.json";
         

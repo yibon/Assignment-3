@@ -66,18 +66,17 @@ public class PlayerScript : MonoBehaviour
     public void AddHealth(int healthToAdd)
     {
         currHealth += healthToAdd;
-        Debug.Log(currHealth);
-        UpdatePlayer();
+        Debug.Log(currHealth + " Hello im here");
     }
     public void AddDamage(int damageToAdd)
     {
         currAttack += damageToAdd;
-        UpdatePlayer();
+        Debug.Log(currAttack + " Hello im here");
     }
     public void AddSpeed(int speedToAdd)
     {
         currSpeed += speedToAdd;
-        UpdatePlayer();
+        Debug.Log(currSpeed + " Hello im here");
     }
 
     public void UpdatePlayer()

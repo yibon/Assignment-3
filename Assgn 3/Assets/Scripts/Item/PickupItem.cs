@@ -46,8 +46,10 @@ public class PickupItem : MonoBehaviour
         }
     }
 
-    private void AdjustPlayerStats()
+    public void AdjustPlayerStats()
     {
+        Debug.Log(data.buffType);
+        Debug.Log(data.ingredientName);
         if(data.buffType == "HP")
         {
             _player.AddHealth(int.Parse(data.buffValue));

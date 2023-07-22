@@ -157,9 +157,7 @@ public class ItemSpawnController : MonoBehaviour
                         {
                             newIngredient.GetComponent<PickupItem>().data = ingredient;
                         }
-                    }
-
-                    
+                    }               
                 }
                 else{
                     
