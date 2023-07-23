@@ -1819,7 +1819,7 @@ MonoBehaviour:
   bullet: {fileID: 8047181953887191861, guid: 6b1ef44fe610f0746ab1be92df327712, type: 3}
   bulletTransform: {fileID: 1789523578}
   canFire: 0
-  timeBetwFiring: 0.5
+  timeBetwFiring: 0.3
   ingredients: {fileID: 0}
 --- !u!1 &1017545261
 GameObject:

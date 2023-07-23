@@ -33,7 +33,7 @@ public class EWaveManager : MonoBehaviour
         timer += Time.deltaTime;
         if (_eWave.spawnDelay != -1)
         {
-            if (timer > _eWave.spawnDelay * 0.5f)
+            if (timer > _eWave.spawnDelay)
             {
                 timer = 0;
                 currEWave = _eWave.nextWaveId;
@@ -43,29 +43,8 @@ public class EWaveManager : MonoBehaviour
 
         else
         {
-            Debug.Log("No more enemies!");
+            //Debug.Log("No more enemies!");
         }
-
-
-     
-        //	// resets the killed for boolean, try not to use for analytics
-        //	enemiesKilled = 0;
-
-        //	if spawnDelay is not -1
-        //	{	
-        //		if (timer > _eWave.spawnDelay)
-        //			isTiming = false;
-        //			currwave = nextrefid;
-        //			spawnEnemy();
-        //}
-
-
-        //    else
-        //{
-        //    isTiming = false;
-        //    debug.log("no more enemies!")
-
-        //    }
     }
 
     private void SpawnEnemy()

@@ -44,6 +44,7 @@ public class ShootingScript : MonoBehaviour
         if(!canFire)
         {
             timer += Time.deltaTime;
+            //          vv change this to a multiplier of the weapon speed
             if (timer > timeBetwFiring)
             {
                 canFire = true;

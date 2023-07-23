@@ -1,1 +1,36 @@
-{"RefEWave":[{"waveId":"4001","enemyId":"3001","spawnDelay":"20","enemyCount":"3","spawnPoint":"1","nextWaveId":"4002"},{"waveId":"4002","enemyId":"3001@3002","spawnDelay":"20","enemyCount":"4@4","spawnPoint":"4@1","nextWaveId":"4003"},{"waveId":"4003","enemyId":"3001@3002@3003","spawnDelay":"30","enemyCount":"5@4@5","spawnPoint":"2@3@4","nextWaveId":"4004"},{"waveId":"4004","enemyId":"3001@3002@3003@3004","spawnDelay":"-1","enemyCount":"5@4@5@4","spawnPoint":"3@4@1@2","nextWaveId":"-1"}]}
+{
+    "RefEWave": [
+        {
+            "waveId": "4001",
+            "enemyId": "3001@3001",
+            "spawnDelay": "20",
+            "enemyCount": "1@1",
+            "spawnPoint": "1@4",
+            "nextWaveId": "4002"
+        },
+        {
+            "waveId": "4002",
+            "enemyId": "3001@3002@3002@3001",
+            "spawnDelay": "30",
+            "enemyCount": "1@1@1@1",
+            "spawnPoint": "1@1@3@4",
+            "nextWaveId": "4003"
+        },
+        {
+            "waveId": "4003",
+            "enemyId": "3001@3002@3003@3002@3001@3003",
+            "spawnDelay": "30",
+            "enemyCount": "1@1@1@1@1@1",
+            "spawnPoint": "2@3@1@1@3@2",
+            "nextWaveId": "4004"
+        },
+        {
+            "waveId": "4004",
+            "enemyId": "3001@3002@3003@3004@3001@3001@3002@3003",
+            "spawnDelay": "-1",
+            "enemyCount": "1@1@1@1@1@1@1@1",
+            "spawnPoint": "3@1@4@2@3@4@2@4",
+            "nextWaveId": "-1"
+        }
+    ]
+}
