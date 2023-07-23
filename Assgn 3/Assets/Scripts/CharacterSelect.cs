@@ -17,6 +17,8 @@ public class CharacterSelect : MonoBehaviour
 
     private Player player;
 
+    private DataManager dataManager;
+
     [SerializeField] private Image characterImage;
     [SerializeField] private Image buttonImage;
 
@@ -29,8 +31,8 @@ public class CharacterSelect : MonoBehaviour
 
     private void Start()
     {
-        //DataManager dataManager = GetComponent<DataManager>();
-        //dataManager.LoadRefCharacterData(OnDataLoad);
+        dataManager = GetComponent<DataManager>();
+
         Debug.Log("CharacterSelect Loaded!");
         _character = Game.GetCharacterByRefId(currCharacter);
     }
@@ -41,7 +43,6 @@ public class CharacterSelect : MonoBehaviour
 
     private void Update()
     {
-
         if (_character != null)
         {
             _character = Game.GetCharacterByRefId(currCharacter);
@@ -52,6 +53,9 @@ public class CharacterSelect : MonoBehaviour
             hpText.text = "HP: " + _character.characterHP.ToString();
             attText.text = "Attack: " + _character.characterAttk.ToString();
             speedText.text = "Speed: " + _character.characterMoveSpeed.ToString();
+
+
+
         }
 
         else

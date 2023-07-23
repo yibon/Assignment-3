@@ -1,0 +1,191 @@
+{
+    "RefDialogue": [
+        {
+            "cutsceneRefId": "601001",
+            "nextCutsceneRefId": "601002",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "sksksksk",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "601002",
+            "nextCutsceneRefId": "601003",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "RIGHT",
+            "speakerName": "Ryu",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "lalalala",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "601003",
+            "nextCutsceneRefId": "601004",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "rararararara",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "601004",
+            "nextCutsceneRefId": "601005",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "pupupupupu",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "601005",
+            "nextCutsceneRefId": "-5",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "-1",
+            "choices": "this is the first choice#601006@this is the second choice#601007"
+        },
+        {
+            "cutsceneRefId": "601006",
+            "nextCutsceneRefId": "601008",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "RIGHT",
+            "speakerName": "Ryu",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "this is the first choice",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "601007",
+            "nextCutsceneRefId": "601009",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "RIGHT",
+            "speakerName": "Ryu",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "this is the second choice",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "601008",
+            "nextCutsceneRefId": "-1",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "end of first tree",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "601009",
+            "nextCutsceneRefId": "-1",
+            "cutsceneSetId": "601",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "end of second tree",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "602001",
+            "nextCutsceneRefId": "602002",
+            "cutsceneSetId": "602",
+            "currentSpeaker": "RIGHT",
+            "speakerName": "Ryu",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "skskskks",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "602002",
+            "nextCutsceneRefId": "602003",
+            "cutsceneSetId": "602",
+            "currentSpeaker": "RIGHT",
+            "speakerName": "Ryu",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "rawrxd",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "602003",
+            "nextCutsceneRefId": "602004",
+            "cutsceneSetId": "602",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "my milkshake brings all the boys to the yard",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "602004",
+            "nextCutsceneRefId": "-5",
+            "cutsceneSetId": "602",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "-1",
+            "choices": "oh my goodness#602005@deez nutz#602006"
+        },
+        {
+            "cutsceneRefId": "602005",
+            "nextCutsceneRefId": "602007",
+            "cutsceneSetId": "602",
+            "currentSpeaker": "RIGHT",
+            "speakerName": "Ryu",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "oh my goodness",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "602006",
+            "nextCutsceneRefId": "602008",
+            "cutsceneSetId": "602",
+            "currentSpeaker": "RIGHT",
+            "speakerName": "Ryu",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "deez nutz",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "602007",
+            "nextCutsceneRefId": "-2",
+            "cutsceneSetId": "602",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "poopoo",
+            "choices": ""
+        },
+        {
+            "cutsceneRefId": "602008",
+            "nextCutsceneRefId": "-2",
+            "cutsceneSetId": "602",
+            "currentSpeaker": "LEFT",
+            "speakerName": "God",
+            "leftImage": "GodDialogue.png",
+            "rightImage": "RyuDialogue.png",
+            "dialogue": "peepee",
+            "choices": ""
+        }
+    ]
+}

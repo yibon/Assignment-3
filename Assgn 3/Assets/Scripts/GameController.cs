@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour
     public EnemyScript enemy;
     public EWaveManager eWave;
 
+    DataManager dataManager;
+
+
     //public float followeingSpeed;
 
     float horizontalIP;
@@ -27,6 +30,8 @@ public class GameController : MonoBehaviour
         //dataManager.LoadRefCharacterData(player.OnDataLoadPlayer);
         //dataManager.LoadRefEnemyData(enemy.OnDataLoadEnemy);
         //dataManager.LoadRefEWaveData(eWave.OnDataLoadEWave);
+
+        dataManager = GetComponent<DataManager>();
 
     }
 
@@ -41,14 +46,17 @@ public class GameController : MonoBehaviour
             //Debug.Log("Alohaaa");
             player.TakeDamage(10);
         }
-
+        
+        // win condition
         if (Input.GetKeyDown(KeyCode.P))
         {
+            dataManager.SaveData();
             DialogueManager.currCutscene = "602";
             SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
         }
 
         direction = new Vector2(horizontalIP, verticalIP).normalized;
+
     }
 
     private void FixedUpdate()

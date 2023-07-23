@@ -23,6 +23,11 @@ public class PlayerScript : MonoBehaviour
         //Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         Game.SetPlayer(new Player(CharacterSelect.currCharacter));
         UpdatePlayer();
+
+        //DataManager dataManager = GetComponent<DataManager>();
+
+        
+
         Player.SetPlayerWeapon("Enemy");
 
     }

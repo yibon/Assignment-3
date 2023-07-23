@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadingScreen.unity
     guid: d490973b3ae67764aa402fb635189b0f
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 098de5e98536f93478aa0cd8877cdb44
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: 298e5a708079b3b4bb3faea43483ae09
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a9e013c477eb55641ba559f1aba398f4, type: 2}

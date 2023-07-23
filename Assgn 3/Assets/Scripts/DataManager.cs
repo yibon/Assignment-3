@@ -12,31 +12,6 @@ using UnityEngine.AddressableAssets;
 
 public class DataManager : MonoBehaviour
 {
-    int dataIsLoaded;
-
-    private void Start()
-    {
-        dataIsLoaded = 0;
-
-        LoadRefDialogueData(onDataLoad);
-        LoadRefCharacterData(onDataLoad);
-        LoadRefEnemyData(onDataLoad);
-        LoadRefEWaveData(onDataLoad);
-    }
-
-
-    private void Update()
-    {
-        if (dataIsLoaded == 4)
-        {
-            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
-        }
-    }
-    private void onDataLoad()
-    {
-        ++dataIsLoaded;
-    }
-
     public void LoadRefDialogueData(Action onLoaded)
     {
         StartCoroutine(DoLoadRefDialogueData("DialogueData", onLoaded));
@@ -230,5 +205,55 @@ public class DataManager : MonoBehaviour
 
         Game.SetEnemyWaveList(enemyWaveList);
     }
+
+    public void WriteData<T>(string filepath, T data)
+    {
+        string dataString = JsonUtility.ToJson(data);
+        Debug.Log("rar rar" + dataString);
+
+        File.WriteAllText(filepath, dataString);
+    }
+
+    public void SaveData()
+    {
+        string filePath = Path.Combine(Application.persistentDataPath, "SaveData.json");
+
+        DynData dynData = MakeSaveData(Game.GetPlayer());   
+
+        WriteData<DynData>(filePath, dynData);
+    }
+
+    //public bool LoadData()
+    //{
+    //    string filePath = Path.Combine(Application.persistentDataPath, "SaveData.json");
+
+    //    if (File.Exists(filePath))
+    //    {
+    //        DynData dynData = ReadData<DynData>(filePath);
+
+    //        return true;
+    //    }
+
+    //    return false;
+
+    //}
+
+    public DynData MakeSaveData(Player player)
+    {
+        DynData dynData = new DynData();
+        dynData.charChosen  = player.GetCurrentCharacter();
+
+        return dynData;
+    }
+
+    //public T ReadData<T> (string filePath)
+    //{
+    //    string dataString = File.ReadAllText(filePath);
+
+    //    T data = JsonUtility.FromJson<T>(dataString);
+
+    //    return data;
+    //}
+
 }
 
