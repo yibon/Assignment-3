@@ -15,9 +15,9 @@
             "ingredientWaveId": "9102",
             "IngredientId": "6001@6002@6003@6004@6005@6006@6012",
             "spawnDelay": "2",
-            "ingredientCount": "5@5@5@5@5@1",
-            "spawnPositionMin": "0,0,0",
-            "spawnPositionMax": "123,123,1",
+            "ingredientCount": "5@5@5@5@5@5@1",
+            "spawnPositionMin": "-10,-5,0",
+            "spawnPositionMax": "10,5,1",
             "nextIngredientWaveId": "9103"
         },
         {
@@ -26,8 +26,8 @@
             "IngredientId": "6001@6002@6003@6004@6005@6006@6007@6008@6013",
             "spawnDelay": "2",
             "ingredientCount": "5@5@5@5@5@5@5@5@1",
-            "spawnPositionMin": "0,0,0",
-            "spawnPositionMax": "123,123,1",
+            "spawnPositionMin": "-10,-5,0",
+            "spawnPositionMax": "10,5,1",
             "nextIngredientWaveId": "-1"
         }
     ]

@@ -17,7 +17,7 @@ public class ItemSpawnController : MonoBehaviour
     private Vector3 minRandPoint = new Vector3(-8, -4, 0);
     private Vector3 maxRandPoint = new Vector3(8, 4, 0);
     private List<Color> colors = new List<Color>(){Color.red, Color.blue, Color.green};
-
+    
     public List<GameObject> pickedUp = new List<GameObject>();
     public BowlController bowlController;
     
@@ -27,12 +27,21 @@ public class ItemSpawnController : MonoBehaviour
     [SerializeField] private int spawnedCount = 0;
 
     private Ingredient _ingredients;
-
+    public GameController gameController;
+    public BoxCollider2D redZone;
+    // The minimum and maximum corners of the BoxCollider2D
+    private Vector2 minPoint = new Vector3(0,0,0);
+    private Vector2 maxPoint = new Vector3(0,0,0);
     // Start is called before the first frame update
 
     private void Awake()
     {
         _ingredients = GetComponent<Ingredient>();
+        
+        // Get the min and max point of redzone
+        minPoint = redZone.bounds.min;
+        maxPoint = redZone.bounds.max;
+        
     }
     void Start()
     {
@@ -75,7 +84,22 @@ public class ItemSpawnController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        // If wave counter == 2, means at last wave
+        if(waveCounter == waveDatas.Count - 1){
+            // If last wave ended, end game
+            if(CurrentWaveEnd(waveCounter)){
+                // GameCompleted will be true only when statueCounter reached 8
+                if(!bowlController.GameCompleted){
+                    // false means failed
+                    gameController.EndGame(false);
+                }
+                else{
+                    // true means yay
+                    gameController.EndGame(true);
+                }
+            }
+        }
         SpawnIngredient();
         CheckIfPickedUpOthers();
     }
@@ -85,37 +109,44 @@ public class ItemSpawnController : MonoBehaviour
 
         for (int i = 0; i < defaultIngredientCount; i++)
         {
-            spawnedCount++;
             canRespawn = true;
             SpawnIngredient();
         }
     }
+    private bool CurrentWaveEnd(int waveCounter){
+        foreach(int remainingIngredient in waveDatas[waveCounter].ingredientCountList){
+            if(remainingIngredient!=0)
+                return false;
+        }
+        Debug.Log("Current ingredient wave ended, starting new wave");
+        return true;
+    }
     private void SpawnIngredient(){
 
         // We only want to have defaultIngredientCount num of ingredient on scene at any time
-        // if(spawnedCount>= defaultIngredientCount){
-        //     canRespawn = false;
-        // }
-        // else{
-        //     canRespawn = true;
-        // }
+        
 
 
         if(canRespawn){
+
             canRespawn = false;
 
+            if(spawnedCount> defaultIngredientCount)
+                return;
+            Debug.Log("Spawned!!!!!");
             // Check if all ingredientCountList is empty or not, if yes, move on to next spawn
-            bool empty = true;
-            foreach(int remainingIngredient in waveDatas[waveCounter].ingredientCountList){
-                if(remainingIngredient!=0)
-                    empty = false;
-                    break;
-            }
-            if(empty){
-                // Increment current wave counter to go to next stage
+            // bool empty = true;
+            // foreach(int remainingIngredient in waveDatas[waveCounter].ingredientCountList){
+            //     if(remainingIngredient!=0)
+            //         empty = false;
+            //         break;
+            // }
+            // if(empty){
+            //     // Increment current wave counter to go to next stage
+            //     waveCounter++;
+            // }
+            if(CurrentWaveEnd(waveCounter))
                 waveCounter++;
-            }
-
 
             WaveData currWave = waveDatas[waveCounter];
 
@@ -139,7 +170,19 @@ public class ItemSpawnController : MonoBehaviour
                     // Positions
                     minRandPoint = currWave.minPosition;
                     maxRandPoint = currWave.maxPosition;
-                    Vector3 randPoint = new Vector3(Random.Range(minRandPoint.x, maxRandPoint.x),Random.Range(minRandPoint.y, maxRandPoint.y),0);
+
+                    // Do not allow spawning inside of red zone
+                    bool validSpawnPoint = false;
+                    Vector3 randPoint = Vector3.zero;
+                    while(!validSpawnPoint){
+                        randPoint = new Vector3(Random.Range(minRandPoint.x, maxRandPoint.x),Random.Range(minRandPoint.y, maxRandPoint.y),0);
+
+                        
+                        // Check if the randPoint is inside or overlapping the bounds
+                        if(!IsPointInsideBounds(randPoint, minPoint, maxPoint))
+                            validSpawnPoint = true;
+                    }
+                     
                     
                     // Ingredient object
                     GameObject newIngredient = Instantiate(ingredientPrefab, randPoint, transform.rotation);
@@ -157,10 +200,8 @@ public class ItemSpawnController : MonoBehaviour
                         {
                             newIngredient.GetComponent<PickupItem>().data = ingredient;
                         }
-                    }               
-                }
-                else{
-                    
+                    }      
+                    spawnedCount++;         
                 }
             }
             // Debug.LogWarning("current wave: " + currWave.ingredientCountList[0]);
@@ -211,5 +252,12 @@ public class ItemSpawnController : MonoBehaviour
     private IEnumerator Countdown() {
         yield return new WaitForSeconds(respawnTimer); //wait 3 seconds
         canRespawn = true;
+    }
+
+    private bool IsPointInsideBounds(Vector3 point, Vector2 minPoint, Vector2 maxPoint)
+    {
+        // Check if the point is within the bounds
+        return (point.x >= minPoint.x && point.x <= maxPoint.x &&
+                point.y >= minPoint.y && point.y <= maxPoint.y);
     }
 }

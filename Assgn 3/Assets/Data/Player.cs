@@ -16,6 +16,8 @@ public class Player
     private int playerHP;
     private int playerAtt;
     private int playerSpeed;
+    private int playerMainAttSpeed;
+    private int playerRamenAttSpeed;
 
     private bool isDirty;
 
@@ -64,6 +66,13 @@ public class Player
     }
     public string GetPlayerWeapon(){
         return playerWeapon;
+    }
+    public Weapon GetActiveWeapon(){
+        Debug.Log("Current weapon is "+ playerWeapon);
+        if(playerWeapon == "Ramen")
+            return RamenWeapon;
+        
+        return MainWeapon;
     }
     public string GetPlayerName()
     {

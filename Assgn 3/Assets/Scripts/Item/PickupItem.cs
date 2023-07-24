@@ -22,6 +22,11 @@ public class PickupItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if(parent == null){
+        //     if(spawnController.pickedUp[0] == this.gameObject){
+        //         parent = _player.transform;
+        //     }
+        // }
         Follow(parent);
     }
     
@@ -88,10 +93,12 @@ public class PickupItem : MonoBehaviour
         
     // }
     void OnTriggerEnter2D(Collider2D col){
-        if(spawnController.pickedUp[0] == null){
-            parent = col.gameObject.transform;
-            spawnController.pickedUp.Add(this.gameObject);
-            spawnController.Trigger();
+        if(col.gameObject.tag == "Player"){
+            if(spawnController.pickedUp[0] == null){
+                parent = _player.transform;
+                spawnController.pickedUp.Add(this.gameObject);
+                spawnController.Trigger();
+            }           
         }
     }
 }

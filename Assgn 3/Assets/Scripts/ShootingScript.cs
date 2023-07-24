@@ -41,15 +41,19 @@ public class ShootingScript : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, rotateZ);
         
+        
+        
         if(!canFire)
         {
             timer += Time.deltaTime;
             //          vv change this to a multiplier of the weapon speed
+            // timeBetwFiring is set whenever player changeweapon from PlayerScript.cs
             if (timer > timeBetwFiring)
             {
                 canFire = true;
                 timer = 0;
             }
+          
         }
 
         Collider2D[] collidersUnderMouse = new Collider2D[4];
@@ -67,10 +71,15 @@ public class ShootingScript : MonoBehaviour
                     if(Game.GetPlayer().GetPlayerWeapon() == "Ramen"){
                         if(obj.tag == "Bowl"){
                             // Set pickup parent's so it will follow it
-                            ingredients.pickedUp[0].GetComponent<PickupItem>().parent = obj.transform;
+                            if(ingredients.pickedUp[0])
+                            {
+                                ingredients.pickedUp[0].GetComponent<PickupItem>().parent = obj.transform;
 
-                            // Add picked up ingredient into bowl
-                            obj.GetComponent<Bowl>().AddToBowl(ingredients.pickedUp[0]);
+                                // Add picked up ingredient into bowl
+                                obj.GetComponent<Bowl>().AddToBowl(ingredients.pickedUp[0]);
+
+                                // ingredients.spawnedCount--;
+                            }
                         }
                     }
                 }
@@ -85,4 +94,5 @@ public class ShootingScript : MonoBehaviour
 
 
     }
+    
 }

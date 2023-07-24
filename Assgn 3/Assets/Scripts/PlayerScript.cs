@@ -18,6 +18,9 @@ public class PlayerScript : MonoBehaviour
     public static int currAttack;
     public static int currSpeed;
 
+    public GameController gameController;
+    public ShootingScript shoot;
+
     private void Start()
     {
         //Game.SetPlayer(new Player(CharacterSelect.currCharacter));
@@ -26,7 +29,7 @@ public class PlayerScript : MonoBehaviour
 
         //DataManager dataManager = GetComponent<DataManager>();
 
-        
+        shoot = this.transform.GetChild(0).GetComponent<ShootingScript>();
 
         Player.SetPlayerWeapon("Enemy");
 
@@ -44,6 +47,34 @@ public class PlayerScript : MonoBehaviour
             }else if(Player.GetPlayerWeapon() == "Ramen"){
                 Player.SetPlayerWeapon("Enemy");
             }
+
+            UpdateWeapon();
+        }
+
+        
+    }
+
+    private void UpdateWeapon(){
+        string speedData = Game.GetPlayer().GetActiveWeapon().GetData("speed");
+        Debug.Log("speedData: "+ speedData);
+        float speedFloat = 0.0f;
+        // Try to parse
+        if (float.TryParse(speedData, out speedFloat))
+        {
+            // Conversion successful, timeBetwFiring now contains the integer value
+            Debug.Log("timeBetwFiring: " + speedFloat);
+
+            // For eg 
+            // (10-8)/10 = 0.2f where 8 is weapon speed
+            // (10-2)/10 = 0.8f where 2 is weapon speed
+            // 0.2 will shoot faster than 0.8
+            shoot.timeBetwFiring = (10.0f - speedFloat)/10;
+        }
+        else
+        {
+            // Conversion failed, handle the error here
+            Debug.LogError("Error: Failed to convert speedData to a float.");
+            shoot.timeBetwFiring = 0; // Set to 0 to disallow shooting.
         }
     }
     public void MovePlayer (Vector2 direction)
@@ -59,13 +90,19 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(int dmgTaken)
     {
-        currHealth -= dmgTaken;
+        
+        if(currHealth - dmgTaken < 0)
+            currHealth = 0;
+        else
+            currHealth -= dmgTaken;
+        
         Debug.Log(currHealth);
         //UpdatePlayer();
 
         if (currHealth <= 0)
         {
             Debug.Log("you ded");
+            gameController.EndGame(false);
         }
     }
     public void AddHealth(int healthToAdd)

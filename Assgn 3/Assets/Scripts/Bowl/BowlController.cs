@@ -15,6 +15,8 @@ public class BowlController : MonoBehaviour
     // [SerializeField] private List<Sprite> allIngredients = new List<Sprite>();
     public ItemSpawnController spawnController;
     public bool GameCompleted = false;
+    public GameController gameController;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,11 +54,13 @@ public class BowlController : MonoBehaviour
         return null;
     }
     public Recipe NextStatue(Bowl bowl){
+        // If bowl completed, they will automatically request for NextStatue, but if statusCounter is already > statues.Count, it will go to GameCompleted
         if (statueCounter <= statues.Count){
             return statues[statueCounter++];
         }
         else{
             GameCompleted = true;
+            gameController.EndGame(GameCompleted);
             return null;
         }
     }

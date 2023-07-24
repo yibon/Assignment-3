@@ -5,9 +5,11 @@ using UnityEngine;
 public class Bowl : MonoBehaviour
 {
 
+    [SerializeField]
     public HashSet<GameObject> myIngredients = new HashSet<GameObject>();
     public HashSet<GameObject> receivedIngredient = new HashSet<GameObject>();
-    public bool recipeComplete = false;
+    public List<GameObject> list_myingredients = new List<GameObject>();
+
     public BowlController controller;
     [SerializeField] private GameObject ingredientImagePrefab;
     
@@ -23,23 +25,42 @@ public class Bowl : MonoBehaviour
         
     }
 
+    void updatelist(){
+        list_myingredients.Clear();
+
+        List<GameObject> tempList = new List<GameObject>(myIngredients);
+        list_myingredients.AddRange(tempList);
+    }
     // Update is called once per frame
     void Update()
     {
-        if(IsBowlFull() && !recipeComplete){
+        // if(IsBowlFull()){
             
-            recipeComplete = true;
-            GetNextStatue();
-        }
-        else{
+        //     GetNextStatue();
+            
+        // }
+        // else{
 
-        }
+        // }
     }
     private void GetNextStatue(){
+        
+
         Recipe recipe = controller.NextStatue(this);
         if(recipe != null){
 
-            float startingX = this.transform.position.x - 1.5f;
+
+            // Control the offset of where to spawn the ingredients needed at each bowl
+            // The higher the offset, the further backwards the ingredients will spawn from
+            float offset = 1.5f;
+            if(recipe.ingredientList.Length == 4)
+                offset = 2.0f;
+            else if(recipe.ingredientList.Length == 5)
+                offset = 4.0f;
+            else if(recipe.ingredientList.Length == 6)
+                offset = 6.0f;
+
+            float startingX = this.transform.position.x - offset;
             
             for(int i=0; i<recipe.ingredientList.Length; i++){
                 string currentIngredient = recipe.ingredientList[i];
@@ -58,10 +79,11 @@ public class Bowl : MonoBehaviour
                 tempIngredient.name = currentIngredient;
                 myIngredients.Add(tempIngredient);
             }
+
+
         }
-        else{
-            // Game ended
-        }
+
+        updatelist();
     }
     public bool IsBowlFull(){
         
@@ -78,13 +100,36 @@ public class Bowl : MonoBehaviour
    
     public void AddToBowl(GameObject ingredient){
         
+        // Add to bowl
         foreach(GameObject child in myIngredients){
             if(child.name == ingredient.name)    {
                 receivedIngredient.Add(child);
                 child.SetActive(false);
-                break;
+                
             }
         }
+
+        // If bowl is full, get next recipe
+        if(IsBowlFull()){
+            // Move on to new statue, removed all my ingredients and received ingredients
+            ResetBowl();
+
+            GetNextStatue();
+            
+        }
+    }
+
+    private void ResetBowl(){
+        
+        myIngredients.Clear();
+        receivedIngredient.Clear();
+
+        // foreach(Transform child in this.transform){
+        //     Destroy(child.gameObject);
+        // }
+
+        
+
     }
 
 }

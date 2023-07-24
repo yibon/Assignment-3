@@ -49,11 +49,25 @@ public class EnemyScript : MonoBehaviour
 
     private void TakeDamage()
     {
-        //             vv Change this to the Weapon 
-        enemycurrHP -= PlayerScript.currAttack;
-        if (enemycurrHP <= 0)
+        string attackData = Game.GetPlayer().GetActiveWeapon().GetData("attack");
+        
+        float attackFloat = 0.0f;
+
+        // Try to parse
+        if (float.TryParse(attackData, out attackFloat))
         {
-            Destroy(gameObject);
+            // Conversion successful, timeBetwFiring now contains the integer value
+            enemycurrHP -= attackFloat;
+            Debug.Log("Enemy(" + this.gameObject + ") HP: " + enemycurrHP);
+            if (enemycurrHP <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            // Conversion failed, handle the error here
+            Debug.LogError("Error: Failed to convert attackData to a float.");
         }
     }
 
@@ -70,6 +84,9 @@ public class EnemyScript : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
+            // Player will take damage according to enemy's current attack
+            
+            player.TakeDamage(Mathf.RoundToInt(enemycurrAttack));
         }
     }
 
