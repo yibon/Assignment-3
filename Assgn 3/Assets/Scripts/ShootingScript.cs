@@ -86,8 +86,11 @@ public class ShootingScript : MonoBehaviour
                     {
                         if (Game.GetPlayer().GetPlayerWeapon() == "Enemy")
                         {
-                            canFire = false;
-                            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                            if (obj.tag == "Enemy")
+                            {
+                                canFire = false;
+                                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                            }
                         }
                     }
                 }
