@@ -10,6 +10,7 @@ using UnityEngine;
 public static class Game
 {
     private static Player player;
+    private static Weapon weapon;
     private static Mob mob;
     private static EnemyWave enemyWave;
 
@@ -96,6 +97,9 @@ public static class Game
     {
         return enemyWaveList.Find(x => x.waveId == _refId);
     }
-
+    public static Weapon GetWeapon()
+    {
+        return weapon;
+    }
 
 }

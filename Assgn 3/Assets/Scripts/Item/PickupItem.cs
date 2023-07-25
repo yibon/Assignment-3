@@ -11,6 +11,8 @@ public class PickupItem : MonoBehaviour
     public float followSpeed = 2.0f;
     public float reachDistance = 0.1f;
 
+    public static int ingredientsShot;
+
     private PlayerScript _player;
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,7 @@ public class PickupItem : MonoBehaviour
                     parent.GetComponent<Bowl>().AddToBowl(this.gameObject);
                     this.gameObject.SetActive(false);
                     AdjustPlayerStats();
+                    ++ingredientsShot;
                     spawnController.pickedUp[0] = null; // Set to null so Player can pick up items again
                 }
             }

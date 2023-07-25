@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
     public static int currAttack;
     public static int currSpeed;
 
+    public static int totalDmgTaken;
+
     public GameController gameController;
     public ShootingScript shoot;
 
@@ -95,9 +97,11 @@ public class PlayerScript : MonoBehaviour
             currHealth = 0;
         else
             currHealth -= dmgTaken;
-        
-        Debug.Log(currHealth);
+
+        //Debug.Log(currHealth);
         //UpdatePlayer();
+
+        totalDmgTaken += dmgTaken;
 
         if (currHealth <= 0)
         {

@@ -12,6 +12,8 @@ using UnityEngine.AddressableAssets;
 
 public class DataManager : MonoBehaviour
 {
+    private string currDateTime;
+
     public void LoadRefDialogueData(Action onLoaded)
     {
         StartCoroutine(DoLoadRefDialogueData("DialogueData", onLoaded));
@@ -216,44 +218,35 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
-        string filePath = Path.Combine(Application.persistentDataPath, "SaveData.json");
+        currDateTime = DateTime.Now.ToString();
+        currDateTime = currDateTime.Replace("/", "-");
+        currDateTime = currDateTime.Replace(' ', '_');
+        currDateTime = currDateTime.Replace(":", "");
 
-        DynData dynData = MakeSaveData(Game.GetPlayer());   
+        Debug.Log(currDateTime);
+
+        string filePath = Path.Combine(Application.persistentDataPath, "SaveData_" + currDateTime + ".json");
+
+        DynData dynData = MakeSaveData(Game.GetPlayer(), Game.GetWeapon());   
 
         WriteData<DynData>(filePath, dynData);
     }
 
-    //public bool LoadData()
-    //{
-    //    string filePath = Path.Combine(Application.persistentDataPath, "SaveData.json");
-
-    //    if (File.Exists(filePath))
-    //    {
-    //        DynData dynData = ReadData<DynData>(filePath);
-
-    //        return true;
-    //    }
-
-    //    return false;
-
-    //}
-
-    public DynData MakeSaveData(Player player)
+    public DynData MakeSaveData(Player player, Weapon weapon)
     {
         DynData dynData = new DynData();
+
+        dynData.dateTime = DateTime.Now.ToString();
         dynData.charChosen  = player.GetCurrentCharacter();
+        dynData.mainWeapChosen = Player.MainWeapon.GetData("id");
+        dynData.ramenWeapChosen = Player.RamenWeapon.GetData("id");
+
+        dynData.enemiesDefeated = EnemyScript.enemiesDefeated;
+        dynData.ingredientsShot = PickupItem.ingredientsShot;
+
+        dynData.damageTaken = PlayerScript.totalDmgTaken;
 
         return dynData;
     }
-
-    //public T ReadData<T> (string filePath)
-    //{
-    //    string dataString = File.ReadAllText(filePath);
-
-    //    T data = JsonUtility.FromJson<T>(dataString);
-
-    //    return data;
-    //}
-
 }
 

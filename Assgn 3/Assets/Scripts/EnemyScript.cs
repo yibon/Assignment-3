@@ -13,6 +13,8 @@ public class EnemyScript : MonoBehaviour
     public float enemycurrAttack;
     public float enemycurrSpeed;
 
+    public static int enemiesDefeated;
+
     public string currEnemyId;
 
     public PlayerScript player;
@@ -61,6 +63,7 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("Enemy(" + this.gameObject + ") HP: " + enemycurrHP);
             if (enemycurrHP <= 0)
             {
+                ++enemiesDefeated;
                 Destroy(gameObject);
             }
         }
