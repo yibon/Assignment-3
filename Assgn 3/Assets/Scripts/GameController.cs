@@ -71,22 +71,11 @@ public class GameController : MonoBehaviour
     public void EndGame(bool gameStatus){
         // Game completed
         if(gameStatus){
-            gameEndPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "Congratulation!";
+            SceneLoader.LoadScene(SceneLoader.Scenes.WinScreen);
         }
         // Game failed
         else{
-            gameEndPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "Try Again...";
+            SceneLoader.LoadScene(SceneLoader.Scenes.LoseScreen);
         }
-
-        gameEndPanel.SetActive(true);
-        Debug.Log(Time.timeScale);
-        Time.timeScale = 0.0f;
-    }
-
-    public void GoToMainMenu(){
-        SceneLoader.LoadScene(SceneLoader.Scenes.MainMenu);
-    }
-    public void RestartGame(){
-        SceneLoader.LoadScene(SceneLoader.Scenes.CharacterSelect);
     }
 }
