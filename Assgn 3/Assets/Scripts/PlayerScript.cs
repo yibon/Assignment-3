@@ -1,7 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
 // File Name: PlayerScript.cs
-// Author: Yvonne Lim
+// Author: Yvonne Lim & Stella Tan
 
 using System;
 using System.Collections;

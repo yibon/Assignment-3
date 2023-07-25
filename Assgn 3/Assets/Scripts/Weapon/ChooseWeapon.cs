@@ -1,3 +1,8 @@
+// UXG2520 & UXG2165 Assignment 3
+// Team Name: Lavon
+// File Name: ChooseWeapon.cs
+// Author: Stella Tan
+
 using System;
 using System.Collections.Generic;
 using System.IO;

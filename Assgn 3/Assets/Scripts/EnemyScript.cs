@@ -1,7 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
 // File Name: EnemyScript.cs
-// Author: Yvonne Lim
+// Author: Yvonne Lim & Stella Tan
 
 using System.Collections;
 using System.Collections.Generic;
@@ -52,13 +52,12 @@ public class EnemyScript : MonoBehaviour
     private void TakeDamage()
     {
         string attackData = Game.GetPlayer().GetActiveWeapon().GetData("attack");
-        
+
         float attackFloat = 0.0f;
 
         // Try to parse
         if (float.TryParse(attackData, out attackFloat))
         {
-            // Conversion successful, timeBetwFiring now contains the integer value
             enemycurrHP -= attackFloat;
             Debug.Log("Enemy(" + this.gameObject + ") HP: " + enemycurrHP);
             if (enemycurrHP <= 0)
@@ -88,7 +87,7 @@ public class EnemyScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // Player will take damage according to enemy's current attack
-            
+
             player.TakeDamage(Mathf.RoundToInt(enemycurrAttack));
         }
     }
@@ -101,9 +100,4 @@ public class EnemyScript : MonoBehaviour
         enemycurrAttack = _mob.GetMobAtt();
         enemycurrSpeed = _mob.GetMobSpeed();
     }
-
-    //public void SetCurrentEnemy(string enemyId)
-    //{
-    //    currEnemyId = enemyId;
-    //}
 }

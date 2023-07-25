@@ -1,7 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
 // File Name: ShootingScript.cs
-// Author: Yvonne Lim
+// Author: Yvonne Lim & Stella Tan
 
 using System.Collections;
 using System.Collections.Generic;
