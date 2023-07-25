@@ -13,6 +13,7 @@ public class DynData
 
     public int enemiesDefeated;
     public int ingredientsShot;
+    public int statuesCompleted;
 
     public float damageTaken;
 }

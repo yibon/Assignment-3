@@ -243,6 +243,7 @@ public class DataManager : MonoBehaviour
 
         dynData.enemiesDefeated = EnemyScript.enemiesDefeated;
         dynData.ingredientsShot = PickupItem.ingredientsShot;
+        dynData.statuesCompleted = Bowl.statuesCompeleted;
 
         dynData.damageTaken = PlayerScript.totalDmgTaken;
 

@@ -11,7 +11,7 @@ public class BowlController : MonoBehaviour
 
     public List<Bowl> bowls = new List<Bowl>();
     public int statueCounter = 0;
-    
+
     // [SerializeField] private List<Sprite> allIngredients = new List<Sprite>();
     public ItemSpawnController spawnController;
     public bool GameCompleted = false;
@@ -55,6 +55,8 @@ public class BowlController : MonoBehaviour
     }
     public Recipe NextStatue(Bowl bowl){
         // If bowl completed, they will automatically request for NextStatue, but if statusCounter is already > statues.Count, it will go to GameCompleted
+   
+
         if (statueCounter <= statues.Count){
             return statues[statueCounter++];
         }

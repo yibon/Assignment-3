@@ -12,7 +12,8 @@ public class Bowl : MonoBehaviour
 
     public BowlController controller;
     [SerializeField] private GameObject ingredientImagePrefab;
-    
+    public static int statuesCompeleted = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +91,7 @@ public class Bowl : MonoBehaviour
         // Check if the two sets have the same elements
         if (receivedIngredient.SetEquals(myIngredients))
         {
+            ++statuesCompeleted;
             return true;
         }
         else
