@@ -22,6 +22,14 @@ public class PlayerScript : MonoBehaviour
 
     public GameController gameController;
     public ShootingScript shoot;
+    public List<Sprite> characterSprites;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer= GetComponent<SpriteRenderer>();
+    }
 
     private void Start()
     {
@@ -34,6 +42,8 @@ public class PlayerScript : MonoBehaviour
         shoot = this.transform.GetChild(0).GetComponent<ShootingScript>();
 
         Player.SetPlayerWeapon("Enemy");
+
+        spriteRenderer.sprite = CharacterSelect.curreCharacterSprite;
 
     }
     private void Update()

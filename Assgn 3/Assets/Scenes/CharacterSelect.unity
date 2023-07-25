@@ -155,6 +155,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterImage: {fileID: 1391320752}
   buttonImage: {fileID: 1177918748}
+  characterSprites:
+  - {fileID: 21300000, guid: 3de63c1f344b14ef992353bfd26a4129, type: 3}
+  - {fileID: 21300000, guid: 5ca5009caedf749c5a1707d75d69c6dd, type: 3}
+  - {fileID: 21300000, guid: 96c5e5f8dddf54179a470c383270d1fc, type: 3}
+  fullSizedCharacterSprites:
+  - {fileID: 21300000, guid: cea01f4907fa444409c9c0583169a129, type: 3}
+  - {fileID: 21300000, guid: e92e0095679764f83ae50bd2e87aca90, type: 3}
+  - {fileID: 21300000, guid: 8d7f10a043b45429ca39e3d6286b10f2, type: 3}
+  characterChoices:
+  - {fileID: 1139561223}
+  - {fileID: 955055761}
+  - {fileID: 1346576793}
   nameText: {fileID: 1358258632}
   hpText: {fileID: 2132977983}
   attText: {fileID: 979835242}

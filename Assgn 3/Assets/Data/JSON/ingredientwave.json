@@ -1,34 +1,34 @@
 {
-    "ingredientwave": [
-        {
-            "stageId": "9001",
-            "ingredientWaveId": "9101",
-            "IngredientId": "6001@6002@6003@6004@6011",
-            "spawnDelay": "2",
-            "ingredientCount": "5@5@5@5@1",
-            "spawnPositionMin": "-10,-5,0",
-            "spawnPositionMax": "10,5,1",
-            "nextIngredientWaveId": "9002"
-        },
-        {
-            "stageId": "9001",
-            "ingredientWaveId": "9102",
-            "IngredientId": "6001@6002@6003@6004@6005@6006@6012",
-            "spawnDelay": "2",
-            "ingredientCount": "5@5@5@5@5@5@1",
-            "spawnPositionMin": "-10,-5,0",
-            "spawnPositionMax": "10,5,1",
-            "nextIngredientWaveId": "9103"
-        },
-        {
-            "stageId": "9001",
-            "ingredientWaveId": "9103",
-            "IngredientId": "6001@6002@6003@6004@6005@6006@6007@6008@6013",
-            "spawnDelay": "2",
-            "ingredientCount": "5@5@5@5@5@5@5@5@1",
-            "spawnPositionMin": "-10,-5,0",
-            "spawnPositionMax": "10,5,1",
-            "nextIngredientWaveId": "-1"
-        }
-    ]
+  "ingredientwave": [
+    {
+      "stageId": "9001",
+      "ingredientWaveId": "9101",
+      "IngredientId": "6001@6002@6003@6004@6006@6011",
+      "spawnDelay": "2",
+      "ingredientCount": "2@3@3@@2@2@1",
+      "spawnPositionMin": "-7,-5,0",
+      "spawnPositionMax": "10,4,0",
+      "nextIngredientWaveId": "9002"
+    },
+    {
+      "stageId": "9001",
+      "ingredientWaveId": "9102",
+      "IngredientId": "6001@6002@6003@6004@6005@6006@6008@6012",
+      "spawnDelay": "2",
+      "ingredientCount": "3@4@4@3@3@2@2@1",
+      "spawnPositionMin": "-7,-5,0",
+      "spawnPositionMax": "10,4,0",
+      "nextIngredientWaveId": "9103"
+    },
+    {
+      "stageId": "9001",
+      "ingredientWaveId": "9103",
+      "IngredientId": "6001@6002@6003@6004@6005@6006@6007@6008@6013",
+      "spawnDelay": "2",
+      "ingredientCount": "3@2@3@3@3@3@2@3@3",
+      "spawnPositionMin": "-7,-5,0",
+      "spawnPositionMax": "10,4,0",
+      "nextIngredientWaveId": "-1"
+    }
+  ]
 }

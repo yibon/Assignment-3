@@ -11,7 +11,6 @@ public class ItemSpawnController : MonoBehaviour
     [SerializeField] private bool canRespawn = false;
 
     [SerializeField] private GameObject ingredientPrefab;
-    // [SerializeField] private List<Image> allIngredients = new List<Image>();
     [SerializeField] public List<Sprite> allIngredients = new List<Sprite>();
 
     private Vector3 minRandPoint = new Vector3(-8, -4, 0);

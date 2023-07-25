@@ -69,7 +69,7 @@ public class Bowl : MonoBehaviour
                 GameObject tempIngredient = Instantiate(ingredientImagePrefab, this.transform.position, transform.rotation);
                 
                 tempIngredient.transform.parent = this.transform;
-                tempIngredient.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                tempIngredient.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
                 tempIngredient.transform.position = new Vector3(startingX + i*1.5f, this.transform.position.y + 1f, 1.0f);
                 
                 // Set the sprite
