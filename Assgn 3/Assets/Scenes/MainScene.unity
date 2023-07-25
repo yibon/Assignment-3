@@ -1461,7 +1461,7 @@ MonoBehaviour:
   statueCounter: 0
   spawnController: {fileID: 1652578952}
   GameCompleted: 0
-  gameController: {fileID: 0}
+  gameController: {fileID: 36615796}
 --- !u!1 &688831623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,8 +1783,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874022451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36, y: -0.64, z: 0.43070462}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.61, y: -0.76336, z: 0.43070462}
+  m_LocalScale: {x: 1.3875, y: 1.2997422, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2002,7 +2002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898327863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.11, y: -0.76, z: -0.045496266}
+  m_LocalPosition: {x: 6.98, y: -0.76, z: -0.045496266}
   m_LocalScale: {x: 0.307872, y: 0.307872, z: 0.307872}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3306,7 +3306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398499282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.02, y: -0.76, z: -0.045496266}
+  m_LocalPosition: {x: -4.69, y: -0.76, z: -0.045496266}
   m_LocalScale: {x: 0.307872, y: 0.307872, z: 0.307872}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4363,7 +4363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTimer: 2
-  defaultIngredientCount: 4
+  defaultIngredientCount: 6
   canRespawn: 1
   ingredientPrefab: {fileID: 1908714118003441513, guid: 475030aa50649dc4ea79e9e6a02a4c8d, type: 3}
   allIngredients:
