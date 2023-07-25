@@ -5,7 +5,7 @@
       "ingredientWaveId": "9101",
       "IngredientId": "6001@6002@6003@6004@6006@6011",
       "spawnDelay": "2",
-      "ingredientCount": "2@3@3@@2@2@1",
+      "ingredientCount": "2@3@3@2@2@1",
       "spawnPositionMin": "-7,-5,0",
       "spawnPositionMax": "10,4,0",
       "nextIngredientWaveId": "9002"

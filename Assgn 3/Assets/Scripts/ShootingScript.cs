@@ -82,12 +82,14 @@ public class ShootingScript : MonoBehaviour
                             }
                         }
                     }
-                }
-            }
-            else{
-                if(Game.GetPlayer().GetPlayerWeapon() == "Enemy"){
-                    canFire = false;
-                    Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                    else
+                    {
+                        if (Game.GetPlayer().GetPlayerWeapon() == "Enemy")
+                        {
+                            canFire = false;
+                            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                        }
+                    }
                 }
             }
         }
