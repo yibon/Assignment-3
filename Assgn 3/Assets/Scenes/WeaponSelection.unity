@@ -818,6 +818,7 @@ MonoBehaviour:
     range: 
     speed: 
     sprite: {fileID: 0}
+  jsonTextAsset: {fileID: 4900000, guid: 46127c4b69f196c4fb1bf49848c6785e, type: 3}
   mainName: {fileID: 86353027}
   mainAttack: {fileID: 1122029230}
   mainAttackSpeed: {fileID: 2113084133}

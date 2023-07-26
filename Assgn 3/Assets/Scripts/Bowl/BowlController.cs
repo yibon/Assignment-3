@@ -9,10 +9,15 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-
+/*
+ * This class holds the statues by reading statues.json file
+ * And allow Bowl.cs to retrieve the next statue
+*/
 public class BowlController : MonoBehaviour
 {
     public RecipeList recipeList;
+    [SerializeField] public TextAsset jsonTextAsset;
+
     public List<Recipe> statues = new List<Recipe>();
 
     public List<Bowl> bowls = new List<Bowl>();
@@ -26,13 +31,11 @@ public class BowlController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
-        // Read json
-        string json_statues = "Assets/Data/JSON/statues.json";
-        
-        if (File.Exists(json_statues))
+                
+        if (jsonTextAsset != null)
         {
-            string jsonData = File.ReadAllText(json_statues);
+            // Read json
+            string jsonData = jsonTextAsset.text;
 
             // Deserialize the JSON data into C# objects
             recipeList = JsonUtility.FromJson<RecipeList>(jsonData);
@@ -71,10 +74,5 @@ public class BowlController : MonoBehaviour
             gameController.EndGame(GameCompleted);
             return null;
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-       
     }
 }

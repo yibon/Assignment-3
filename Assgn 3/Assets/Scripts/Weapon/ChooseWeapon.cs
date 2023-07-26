@@ -13,7 +13,8 @@ using UnityEngine.UI;
 public class ChooseWeapon : MonoBehaviour
 {
     // Array for both weaponWrapper
-    public List<Sprite> weaponImages = new List<Sprite>();
+
+    [SerializeField] public List<Sprite> weaponImages = new List<Sprite>();
     public List<Weapon> mainWeapons = new List<Weapon>();
     public List<Weapon> ramenWeapons = new List<Weapon>();
 
@@ -23,9 +24,9 @@ public class ChooseWeapon : MonoBehaviour
     private int activeMainIndex;
     private int activeRamenIndex;
 
-    // File path to weapon csv
-    private string weaponDatabase = "Assets/Data/Weapon/uxg2520 Game System - Weapons Json.json";
-
+    // Text asset to weapon json
+    [SerializeField] public TextAsset jsonTextAsset;
+    
     // UIs
     [SerializeField] private TMPro.TMP_Text mainName, mainAttack, mainAttackSpeed;
     [SerializeField] private TMPro.TMP_Text ramenName, ramenAttack, ramenAttackSpeed;
@@ -48,17 +49,14 @@ public class ChooseWeapon : MonoBehaviour
     // Init the mainWeapons and ramenWeapons array
     private void InitWeaponArray(){
         // Read all weaponWrapper from csv
-        // To read a text file line by line
-        if (File.Exists(weaponDatabase)) {
+        
+        if (jsonTextAsset != null)
+        {
             
-            // Store each line in array of strings
-            string jsonData = File.ReadAllText(weaponDatabase);
-
-            Debug.Log(jsonData);
-
+            string jsonData = jsonTextAsset.text;
             WeaponListWrapper weapons = JsonUtility.FromJson<WeaponListWrapper>(jsonData);
 
-            Debug.Log(" weapon count ::" + weapons.weapons.Count);
+            // Debug.Log(" weapon count ::" + weapons.weapons.Count);
 
             for (int i = 0; i < weapons.weapons.Count; i++)
             {
@@ -70,28 +68,7 @@ public class ChooseWeapon : MonoBehaviour
 
                 weapons.weapons[i].sprite = weaponImages[i];
             }
-            }
-
-        //for(int i=0; i<lines.Length; i++)
-        // {
-
-        // if(i==0)
-        //     continue;
-        // string[] data = lines[i].Split(",");
-
-        // // Create a weapon object based on details from csv
-        // Weapon temp = new Weapon(data[0],data[1],data[2], data[3], data[4], data[5]);
-
-        // // Sort into main or ramen weapon type
-        // if(data[1] == "200")
-        //     mainWeapons.Add(temp);
-        // else if(data[1] == "201")
-        //     ramenWeapons.Add(temp);
-        //}
-        else{
-            Debug.Log(weaponDatabase + " do not exist!");
         }
-
         activeMain = mainWeapons[0];
         activeRamen = ramenWeapons[0];
         activeMainIndex = 0;

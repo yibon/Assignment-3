@@ -1422,6 +1422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeList:
     statues: []
+  jsonTextAsset: {fileID: 4900000, guid: 1850b0ba0de177d449dc3f83b22b78ba, type: 3}
   statues: []
   bowls: []
   statueCounter: 0
@@ -4416,6 +4417,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c79e42b2dc513e643b5246c214323cd5, type: 3}
   - {fileID: 21300000, guid: e5b4536bf223f3e41b58ed6d03067f56, type: 3}
   - {fileID: 21300000, guid: b53d9c8b1e5cb754da29e5c8635064a5, type: 3}
+  jsonTextAsset: {fileID: 4900000, guid: 5587b1c2c15177246a3545cb19bc7ba3, type: 3}
   pickedUp: []
   bowlController: {fileID: 596029297}
   waveList:
@@ -4454,6 +4456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientList:
     ingredient: []
+  jsonTextAsset: {fileID: 4900000, guid: e6d80d54d2691c248b251e8612c0748f, type: 3}
 --- !u!1 &1658397443
 GameObject:
   m_ObjectHideFlags: 0

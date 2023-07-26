@@ -17,6 +17,7 @@ public class ItemSpawnController : MonoBehaviour
 
     [SerializeField] private GameObject ingredientPrefab;
     [SerializeField] public List<Sprite> allIngredients = new List<Sprite>();
+    [SerializeField] public TextAsset jsonTextAsset;
 
     private Vector3 minRandPoint = new Vector3(-8, -4, 0);
     private Vector3 maxRandPoint = new Vector3(8, 4, 0);
@@ -50,11 +51,12 @@ public class ItemSpawnController : MonoBehaviour
     void Start()
     {
         // Read json
-        string json_wave = "Assets/Data/JSON/ingredientwave.json";
+        // string json_wave = "Assets/Data/JSON/ingredientwave.json";
         
-        if (File.Exists(json_wave))
+        if (jsonTextAsset != null)
         {
-            string jsonData = File.ReadAllText(json_wave);
+            
+            string jsonData = jsonTextAsset.text;
 
             // Deserialize the JSON data into C# objects
             waveList = JsonUtility.FromJson<WaveList>(jsonData);
