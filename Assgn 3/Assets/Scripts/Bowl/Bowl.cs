@@ -1,3 +1,9 @@
+// UXG2520 & UXG2165 Assignment 3
+// Team Name: Lavon
+// File Name: Bowl.cs
+// Author: Stella Tan
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -129,9 +135,6 @@ public class Bowl : MonoBehaviour
         // foreach(Transform child in this.transform){
         //     Destroy(child.gameObject);
         // }
-
-        
-
     }
 
 }
