@@ -18,12 +18,12 @@
         {
             "statueId": "8004",
             "statueName": "Pork Slice Ramen",
-            "ingredientId": "6001@6002@6003@6005@6006"
+            "ingredientId": "6001@6003@6005@6006"
         },
         {
             "statueId": "8005",
             "statueName": "Egg Ramen ",
-            "ingredientId": "6001@6002@6003@6004@6005"
+            "ingredientId": "6001@6002@6004"
         },
         {
             "statueId": "8006",
@@ -33,12 +33,12 @@
         {
             "statueId": "8007",
             "statueName": "Veggie Ramen",
-            "ingredientId": "6001@6003@6004@6005@6007@6008"
+            "ingredientId": "6001@6004@6005@6007@6008"
         },
         {
             "statueId": "8008",
             "statueName": "Jumbo Ramen",
-            "ingredientId": "6001@6002@6003@6004@6005@6006@6007@6008"
+            "ingredientId": "6001@6002@6003@6007@6008"
         }
     ]
 }
