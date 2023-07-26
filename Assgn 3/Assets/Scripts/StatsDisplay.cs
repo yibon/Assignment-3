@@ -18,7 +18,7 @@ public class StatsDisplay : MonoBehaviour
 
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text hpText;
-    [SerializeField] private TMP_Text attText;
+    //[SerializeField] private TMP_Text attText;
     [SerializeField] private TMP_Text speedText;
 
     [SerializeField] private TMP_Text enemiesDefeatedText;
@@ -36,7 +36,7 @@ public class StatsDisplay : MonoBehaviour
     {
         nameText.text = "Character: " + _player.GetPlayerName();
         hpText.text = "HP: " + PlayerScript.currHealth;
-        attText.text = "Attack: " + PlayerScript.currAttack;
+        //attText.text = "Attack: " + PlayerScript.currAttack;
         speedText.text = "Speed: " + PlayerScript.currSpeed;
 
         enemiesDefeatedText.text = "Enemies Defeated: " + EnemyScript.enemiesDefeated;

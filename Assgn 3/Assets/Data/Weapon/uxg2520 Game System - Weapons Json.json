@@ -4,25 +4,25 @@
             "id": "2001",
             "type": "200",
             "name": "Noodle Shooter",
-            "attack": "5",
+            "attack": "15",
             "range": "1",
-            "speed": "5"
+            "speed": "8"
         },
         {
             "id": "2002",
             "type": "200",
             "name": "Soy Sauce Cannon",
-            "attack": "10",
+            "attack": "20",
             "range": "1",
-            "speed": "3"
+            "speed": "5"
         },
         {
             "id": "2003",
             "type": "200",
             "name": "Veggie Blaster",
-            "attack": "15",
+            "attack": "25",
             "range": "1",
-            "speed": "8"
+            "speed": "3"
         },
         {
             "id": "2011",

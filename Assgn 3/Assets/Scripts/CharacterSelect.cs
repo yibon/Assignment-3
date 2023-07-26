@@ -29,7 +29,7 @@ public class CharacterSelect : MonoBehaviour
 
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text hpText;
-    [SerializeField] private TMP_Text attText;
+    //[SerializeField] private TMP_Text attText;
     [SerializeField] private TMP_Text speedText;
 
     private Character _character;
@@ -56,7 +56,7 @@ public class CharacterSelect : MonoBehaviour
             characterChosen = true;
             nameText.text = _character.characterName;
             hpText.text = "HP: " + _character.characterHP.ToString();
-            attText.text = "Attack: " + _character.characterAttk.ToString();
+            //attText.text = "Attack: " + _character.characterAttk.ToString();
             speedText.text = "Speed: " + _character.characterMoveSpeed.ToString();
 
 
@@ -67,7 +67,7 @@ public class CharacterSelect : MonoBehaviour
         {
             nameText.text = "Choose Your Character";
             hpText.text = "HP: ";
-            attText.text = "Attack: ";
+            //attText.text = "Attack: ";
             speedText.text = "Speed: ";
         }
     }
