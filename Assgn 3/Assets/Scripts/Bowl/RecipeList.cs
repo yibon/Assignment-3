@@ -1,8 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
-// File Name: RecipeList.cs
+// File Name: ReciepeList.cs
 // Author: Stella Tan
-
 
 using System.Collections;
 using System.Collections.Generic;

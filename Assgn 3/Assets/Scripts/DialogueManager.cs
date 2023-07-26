@@ -37,9 +37,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        //DataManager dataManager = GetComponent<DataManager>();
-        //dataManager.LoadRefDialogueData(OnDataLoad);
-
         // Comment this line when there are multiple dialogues involved
         //_dialogue = Game.GetDialogueByRefId(currCutscene);
 
@@ -57,10 +54,6 @@ public class DialogueManager : MonoBehaviour
         NextLine();
     }
 
-    //public void OnDataLoad()
-    //{
-    //}
-
     // in update,
     private void Update()
     {
@@ -76,15 +69,6 @@ public class DialogueManager : MonoBehaviour
     private void NextLine()
     {
         _dialogue = Game.GetDialogueByRefId(currDialogue);
-        Debug.Log(currDialogue);
-
-        // Checking if the current scene is the end
-        //if (currDialogue == "-1") 
-        //{
-        // this is giving an error because there is no currcutscene in currdialogue
-        // ways around: check the next cutscene (but this will probably make it switch scenes prematurely)
-        // other way around: add a new line in the excel where it catches the currdialogue as -1 (will have two -1 currdialogue)
-        // make each end-identifier unique
 
         if (currDialogue == "-1")
         {

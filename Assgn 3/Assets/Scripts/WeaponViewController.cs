@@ -3,7 +3,6 @@
 // File Name: WeaponViewController.cs
 // Author: Stella Tan
 
-
 using System;
 using System.Collections;
 using System.Collections.Generic;

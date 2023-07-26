@@ -3,7 +3,6 @@
 // File Name: ChooseWeapon.cs
 // Author: Stella Tan
 
-
 using System;
 using System.Collections.Generic;
 using System.IO;

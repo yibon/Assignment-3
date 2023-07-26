@@ -1,7 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
 // File Name: GameController.cs
-// Author: Yvonne Lim
+// Author: Yvonne Lim & Stella Tan
 
 using System.Collections;
 using System.Collections.Generic;
@@ -30,11 +30,6 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        //DataManager dataManager = GetComponent<DataManager>();
-        //dataManager.LoadRefCharacterData(player.OnDataLoadPlayer);
-        //dataManager.LoadRefEnemyData(enemy.OnDataLoadEnemy);
-        //dataManager.LoadRefEWaveData(eWave.OnDataLoadEWave);
-
         dataManager = GetComponent<DataManager>();
         Time.timeScale = 1.0f;
     }
@@ -44,10 +39,8 @@ public class GameController : MonoBehaviour
         horizontalIP = Input.GetAxisRaw("Horizontal");
         verticalIP = Input.GetAxisRaw("Vertical");
 
-        //player.UpdatePlayer();
         if (Input.GetKeyDown(KeyCode.T)) 
         {
-            //Debug.Log("Alohaaa");
             player.TakeDamage(10);
         }
         

@@ -1,3 +1,7 @@
+// UXG2520 & UXG2165 Assignment 3
+// Team Name: Lavon
+// File Name: EWaveManager.cs
+// Author: Yvonne Lim
 
 using System;
 using System.Linq;
@@ -23,10 +27,6 @@ public class EWaveManager : MonoBehaviour
         SpawnEnemy();
 
     }
-
-    //public void OnDataLoadEWave()
-    //{
-    //}
 
     private void Update()
     {
@@ -73,13 +73,6 @@ public class EWaveManager : MonoBehaviour
         splitEnemyCountint = Array.ConvertAll(splitEnemyCount, int.Parse);
 
         splitEnemySpawnPt = _eWave.spawnPoint.Split("@");
-
-        //for (int i = 0; i < splitEnemyId.Count(); i++)
-        //{
-        //    Debug.Log("Ids: " + splitEnemyId[i]);
-        //    Debug.Log("Count: " + splitEnemyCountint[i]);
-        //    Debug.Log("SpawnPts: " + splitEnemySpawnPt[i]);
-        //}
     }
 
     private Vector3 GetSpawnPointPos(string currSpawnPoint)
@@ -109,25 +102,4 @@ public class EWaveManager : MonoBehaviour
 
         return spawnPoint;
     }
-
-    //vector3 getspawnpointpositions(string currspawnpoint);
-    //{
-    //    get the spawn point objects from the game
-
-    //    get their  transform components,
-    //    spawn1position = transform.position;
-    //    spawn2position = transform.position;
-    //    ...
-
-    //	switch (currspawnpoint)
-
-    //    case 1:
-    //        spawnpoint = spawn1pos;
-    //        break
-
-    //    ...
-
-    //	return spawnpoint
-    //}
-
 }

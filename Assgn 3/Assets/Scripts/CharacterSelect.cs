@@ -47,10 +47,6 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
-    //private void OnDataLoad()
-    //{
-    //}
-
     private void Update()
     {
         if (_character != null)
@@ -58,7 +54,6 @@ public class CharacterSelect : MonoBehaviour
             _character = Game.GetCharacterByRefId(currCharacter);
             buttonImage.color = Color.white;
             characterChosen = true;
-            //Debug.Log(_character.characterId);
             nameText.text = _character.characterName;
             hpText.text = "HP: " + _character.characterHP.ToString();
             attText.text = "Attack: " + _character.characterAttk.ToString();
