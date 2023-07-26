@@ -1,7 +1,8 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
-// File Name: Ingredient.cs
+// File Name: IngredientData.cs
 // Author: Stella Tan
+
 
 using System.IO;
 using System.Collections;

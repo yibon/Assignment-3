@@ -1,7 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
 // File Name: ShootingScript.cs
-// Author: Yvonne Lim & Stella Tan
+// Author: Yvonne Lim
 
 using System.Collections;
 using System.Collections.Generic;
@@ -42,6 +42,7 @@ public class ShootingScript : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rotateZ);
         
         
+        
         if(!canFire)
         {
             timer += Time.deltaTime;
@@ -60,7 +61,7 @@ public class ShootingScript : MonoBehaviour
         
         if (Input.GetMouseButton(0) && canFire)
         {
-            if (numCollidersUnderMouse>0){
+            if(numCollidersUnderMouse>0){
                 for (int i = 0; i < numCollidersUnderMouse; ++i)
                 {
                     // Check if collidersUnderMouse[i] is the type of object you want using tags or GetComponent()
@@ -81,27 +82,17 @@ public class ShootingScript : MonoBehaviour
                             }
                         }
                     }
-<<<<<<< Updated upstream
-                }
-            }
-            else{
-                if(Game.GetPlayer().GetPlayerWeapon() == "Enemy"){
-                    canFire = false;
-                    Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-=======
                     else
                     {
                         if (Game.GetPlayer().GetPlayerWeapon() == "Enemy")
                         {
-                            //if (obj.tag == "Enemy")
-                            //{
-                                Debug.Log("FEWfewfwe");
+                            if (obj.tag == "Enemy")
+                            {
                                 canFire = false;
                                 Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-                            //}
+                            }
                         }
                     }
->>>>>>> Stashed changes
                 }
             }
         }

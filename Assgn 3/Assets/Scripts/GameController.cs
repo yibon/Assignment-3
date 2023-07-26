@@ -1,7 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
 // File Name: GameController.cs
-// Author: Yvonne Lim & Stella Tan
+// Author: Yvonne Lim
 
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +30,11 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        //DataManager dataManager = GetComponent<DataManager>();
+        //dataManager.LoadRefCharacterData(player.OnDataLoadPlayer);
+        //dataManager.LoadRefEnemyData(enemy.OnDataLoadEnemy);
+        //dataManager.LoadRefEWaveData(eWave.OnDataLoadEWave);
+
         dataManager = GetComponent<DataManager>();
         Time.timeScale = 1.0f;
     }
@@ -39,15 +44,19 @@ public class GameController : MonoBehaviour
         horizontalIP = Input.GetAxisRaw("Horizontal");
         verticalIP = Input.GetAxisRaw("Vertical");
 
+        //player.UpdatePlayer();
         if (Input.GetKeyDown(KeyCode.T)) 
         {
+            //Debug.Log("Alohaaa");
             player.TakeDamage(10);
         }
         
         // win condition
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            EndGame(true);
+            dataManager.SaveData();
+            DialogueManager.currCutscene = "602";
+            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
         }
 
         direction = new Vector2(horizontalIP, verticalIP).normalized;
@@ -62,29 +71,11 @@ public class GameController : MonoBehaviour
     public void EndGame(bool gameStatus){
         // Game completed
         if(gameStatus){
-<<<<<<< Updated upstream
-            gameEndPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "Congratulation!";
-=======
-
-            dataManager.SaveData();
-            DialogueManager.currCutscene = "602";
-            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
->>>>>>> Stashed changes
+            SceneLoader.LoadScene(SceneLoader.Scenes.WinScreen);
         }
         // Game failed
         else{
-            gameEndPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "Try Again...";
+            SceneLoader.LoadScene(SceneLoader.Scenes.LoseScreen);
         }
-
-        gameEndPanel.SetActive(true);
-        Debug.Log(Time.timeScale);
-        Time.timeScale = 0.0f;
-    }
-
-    public void GoToMainMenu(){
-        SceneLoader.LoadScene(SceneLoader.Scenes.MainMenu);
-    }
-    public void RestartGame(){
-        SceneLoader.LoadScene(SceneLoader.Scenes.CharacterSelect);
     }
 }

@@ -1,7 +1,8 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
-// File Name: PickupItem.cs
+// File Name: PickUpItem.cs
 // Author: Stella Tan
+
 
 using System.Collections;
 using System.Collections.Generic;
@@ -86,20 +87,7 @@ public class PickupItem : MonoBehaviour
         return distance <= reachDistance;
     }
    
-    // // when the GameObjects collider arrange for this GameObject to travel to the left of the screen
-    // void OnTriggerStay2D(Collider2D col)
-    // {
-    //     // If press spacebar and parent==null
-    //     // parent == null cause otherwise, it will run this code multiple times
-    //     // Take note: this is OnTriggerStay2D, it will run this code as long as player is in contact
-    //     if(Input.GetKey(KeyCode.Space) && parent == null){
-    //         parent = col.gameObject.transform;
-    //         spawnController.pickedUp.Add(this.gameObject);
-    //         spawnController.Trigger();
-    //     }   
-            
-        
-    // }
+// Picking up the ingredient on collide
     void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.tag == "Player"){
             if(spawnController.pickedUp[0] == null){

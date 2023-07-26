@@ -3,6 +3,7 @@
 // File Name: Bowl.cs
 // Author: Stella Tan
 
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -74,7 +75,7 @@ public class Bowl : MonoBehaviour
                 GameObject tempIngredient = Instantiate(ingredientImagePrefab, this.transform.position, transform.rotation);
                 
                 tempIngredient.transform.parent = this.transform;
-                tempIngredient.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                tempIngredient.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
                 tempIngredient.transform.position = new Vector3(startingX + i*1.5f, this.transform.position.y + 1f, 1.0f);
                 
                 // Set the sprite
@@ -134,9 +135,6 @@ public class Bowl : MonoBehaviour
         // foreach(Transform child in this.transform){
         //     Destroy(child.gameObject);
         // }
-
-        
-
     }
 
 }
