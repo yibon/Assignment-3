@@ -45,11 +45,9 @@ public class GameController : MonoBehaviour
         }
         
         // win condition
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            dataManager.SaveData();
-            DialogueManager.currCutscene = "602";
-            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
+            EndGame(true);
         }
 
         direction = new Vector2(horizontalIP, verticalIP).normalized;
@@ -64,7 +62,14 @@ public class GameController : MonoBehaviour
     public void EndGame(bool gameStatus){
         // Game completed
         if(gameStatus){
+<<<<<<< Updated upstream
             gameEndPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "Congratulation!";
+=======
+
+            dataManager.SaveData();
+            DialogueManager.currCutscene = "602";
+            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
+>>>>>>> Stashed changes
         }
         // Game failed
         else{
