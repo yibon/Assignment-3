@@ -30,11 +30,6 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        //DataManager dataManager = GetComponent<DataManager>();
-        //dataManager.LoadRefCharacterData(player.OnDataLoadPlayer);
-        //dataManager.LoadRefEnemyData(enemy.OnDataLoadEnemy);
-        //dataManager.LoadRefEWaveData(eWave.OnDataLoadEWave);
-
         dataManager = GetComponent<DataManager>();
         Time.timeScale = 1.0f;
     }
@@ -50,13 +45,11 @@ public class GameController : MonoBehaviour
             //Debug.Log("Alohaaa");
             player.TakeDamage(10);
         }
-        
+
         // win condition
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            dataManager.SaveData();
-            DialogueManager.currCutscene = "602";
-            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
+            EndGame(true);
         }
 
         direction = new Vector2(horizontalIP, verticalIP).normalized;
@@ -70,8 +63,11 @@ public class GameController : MonoBehaviour
 
     public void EndGame(bool gameStatus){
         // Game completed
-        if(gameStatus){
-            SceneLoader.LoadScene(SceneLoader.Scenes.WinScreen);
+        if(gameStatus)
+        {
+            dataManager.SaveData();
+            DialogueManager.currCutscene = "602";
+            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
         }
         // Game failed
         else{
