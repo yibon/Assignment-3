@@ -17,7 +17,8 @@ public class EnemyWave
     public string spawnPoint { get; }
     public string nextWaveId { get; }
 
-    public EnemyWave (string waveId, string enemyId, float spawnDelay, string enemyCount, string spawnPoint, string nextWaveId)    {
+    public EnemyWave (string waveId, string enemyId, float spawnDelay, string enemyCount, string spawnPoint, string nextWaveId)
+    {
         this.waveId = waveId;
         this.enemyId = enemyId;
         this.spawnDelay = spawnDelay;

@@ -15,14 +15,9 @@ public class MainMenu : MonoBehaviour
         SceneLoader.LoadScene(SceneLoader.Scenes.LoadingScreen);
     }
 
-    public static void HowToPlay()
-    {
-        Debug.Log("How To Play");
-    }
-
     public static void QuitGame()
     {
-        Debug.Log("Game Ends!");
+        Application.Quit();
     }
 
 }

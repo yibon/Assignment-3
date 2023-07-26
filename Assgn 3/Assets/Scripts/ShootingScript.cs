@@ -1,7 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
 // File Name: ShootingScript.cs
-// Author: Yvonne Lim & Stella Tan
+// Author: Yvonne Lim
 
 using System.Collections;
 using System.Collections.Generic;
@@ -86,11 +86,9 @@ public class ShootingScript : MonoBehaviour
                     {
                         if (Game.GetPlayer().GetPlayerWeapon() == "Enemy")
                         {
-                            if (obj.tag == "Enemy")
-                            {
-                                canFire = false;
-                                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-                            }
+                            canFire = false;
+                            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                            
                         }
                     }
                 }

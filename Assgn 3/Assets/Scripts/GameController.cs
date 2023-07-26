@@ -1,7 +1,7 @@
 // UXG2520 & UXG2165 Assignment 3
 // Team Name: Lavon
 // File Name: GameController.cs
-// Author: Yvonne Lim & Stella Tan
+// Author: Yvonne Lim
 
 using System.Collections;
 using System.Collections.Generic;
@@ -39,17 +39,17 @@ public class GameController : MonoBehaviour
         horizontalIP = Input.GetAxisRaw("Horizontal");
         verticalIP = Input.GetAxisRaw("Vertical");
 
+        //player.UpdatePlayer();
         if (Input.GetKeyDown(KeyCode.T)) 
         {
+            //Debug.Log("Alohaaa");
             player.TakeDamage(10);
         }
-        
+
         // win condition
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            dataManager.SaveData();
-            DialogueManager.currCutscene = "602";
-            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
+            EndGame(true);
         }
 
         direction = new Vector2(horizontalIP, verticalIP).normalized;
@@ -63,8 +63,11 @@ public class GameController : MonoBehaviour
 
     public void EndGame(bool gameStatus){
         // Game completed
-        if(gameStatus){
-            SceneLoader.LoadScene(SceneLoader.Scenes.WinScreen);
+        if(gameStatus)
+        {
+            dataManager.SaveData();
+            DialogueManager.currCutscene = "602";
+            SceneLoader.LoadScene(SceneLoader.Scenes.Cutscene1);
         }
         // Game failed
         else{
