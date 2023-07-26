@@ -358,7 +358,7 @@
             "cutsceneSetId": "601",
             "currentSpeaker": "LEFT",
             "speakerName": "God",
-            "leftImage": "GodDialogue.png",
+            "leftImage": "HiroDialogue.png",
             "rightImage": "RyuDialogue.png",
             "dialogue": "To help you, I will send some angels with different attack,",
             "choices": ""
@@ -369,7 +369,7 @@
             "cutsceneSetId": "601",
             "currentSpeaker": "LEFT",
             "speakerName": "God",
-            "leftImage": "GodDialogue.png",
+            "leftImage": "MeiDialogue.png",
             "rightImage": "RyuDialogue.png",
             "dialogue": "speed and health to boost you. Choose wisely.",
             "choices": ""
